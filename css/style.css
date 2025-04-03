@@ -1,0 +1,75 @@
+/* Estilos gerais do corpo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+/* Estilos do cabeçalho */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Estilos do botão do menu */
+#menu-toggle {
+  position: absolute; /* Posiciona o botão de forma absoluta */
+  top: 10px; /* Distância do topo */
+  left: 10px; /* Distância da esquerda */
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#menu-toggle:hover {
+  background-color: #777;
+}
+
+/* Estilos do menu de navegação */
+nav {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Escondido inicialmente */
+  width: 250px;
+  height: 100%;
+  background-color: #444;
+  transition: left 0.3s ease; /* Transição suave */
+  padding-top: 60px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 15px;
+  text-align: center;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Classes para controle de visibilidade do menu */
+nav.hidden {
+  left: -250px; /* Escondido */
+}
+
+nav.visible {
+  left: 0; /* Visível */
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
