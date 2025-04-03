@@ -73,3 +73,37 @@ main {
   padding: 20px;
   text-align: center;
 }
+
+/* Estilos para a seção de hobbies */
+.hobby-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hobby {
+  margin: 15px;
+  text-align: center;
+  width: 200px; /* Largura fixa para cada hobby */
+}
+
+.hobby img {
+  width: 100%; /* Imagem ocupa toda a largura do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 8px; /* Bordas arredondadas */
+  transition: transform 0.3s; /* Transição suave para o efeito de hover */
+}
+
+.hobby img:hover {
+  transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+}
+
+.hobby h3 {
+  margin: 10px 0 5px; /* Margem para o título */
+}
+
+.hobby p {
+  font-size: 14px; /* Tamanho da fonte para a descrição */
+  color: #666; /* Cor da descrição */
+}
