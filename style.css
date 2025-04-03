@@ -15,9 +15,9 @@ header {
 }
 
 #menu-toggle {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  position: absolute; /* Posiciona o botão de forma absoluta */
+  top: 10px; /* Distância do topo */
+  left: 10px; /* Distância da esquerda */
   background-color: #555;
   color: white;
   border: none;
