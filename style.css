@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
-  color: #333;
+  color: #000000;
 }
 
 header {
@@ -16,8 +16,8 @@ header {
 
 #menu-toggle {
   position: absolute; /* Posiciona o botão de forma absoluta */
-  top: 10px; /* Distância do topo */
-  left: 10px; /* Distância da esquerda */
+  top: 50px; /* Distância do topo */
+  left: 5px; /* Distância da esquerda */
   background-color: #555;
   color: white;
   border: none;
