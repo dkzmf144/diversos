@@ -1,3 +1,4 @@
+/* Estilos gerais do corpo */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Estilos do cabeçalho */
 header {
   background-color: #333;
   color: white;
@@ -14,6 +16,7 @@ header {
   position: relative;
 }
 
+/* Estilos do botão do menu */
 #menu-toggle {
   position: absolute; /* Posiciona o botão de forma absoluta */
   top: 10px; /* Distância do topo */
@@ -30,6 +33,7 @@ header {
   background-color: #777;
 }
 
+/* Estilos do menu de navegação */
 nav {
   position: fixed;
   top: 0;
@@ -56,6 +60,7 @@ nav ul li a {
   text-decoration: none;
 }
 
+/* Classes para controle de visibilidade do menu */
 nav.hidden {
   left: -250px; /* Escondido */
 }
