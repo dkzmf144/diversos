@@ -77,15 +77,16 @@ main {
 /* Estilos para a seção de hobbies */
 .hobby-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
+  justify-content: center; /* Centraliza os itens */
   margin-top: 20px;
 }
 
 .hobby {
   margin: 15px;
   text-align: center;
-  width: 200px; /* Largura fixa para cada hobby */
+  width: 30%; /* Largura de 30% para três itens por linha */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
 .hobby img {
@@ -106,4 +107,11 @@ main {
 .hobby p {
   font-size: 14px; /* Tamanho da fonte para a descrição */
   color: #666; /* Cor da descrição */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .hobby {
+    width: 100%; /* Largura de 100% em telas menores */
+  }
 }
