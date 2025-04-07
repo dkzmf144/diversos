@@ -69,7 +69,86 @@ nav.visible {
   left: 0; /* Visível */
 }
 
+/* Estilos principais do conteúdo */
 main {
   padding: 20px;
   text-align: center;
+}
+
+/* Estilos do conteúdo de compras */
+#compras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.produtos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.produto-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.produto-card:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.produto-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.produto-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.produto-card button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.produto-card button:hover {
+  background-color: #218838;
+}
+
+/* Estilos da seção de hobbies */
+#hobbies {
+  margin-top: 40px;
+}
+
+.hobby-list {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hobby-list ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.hobby-list h4 {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #333;
 }
