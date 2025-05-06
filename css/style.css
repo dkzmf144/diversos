@@ -157,13 +157,13 @@ main h2 {
 
 .produto-card h4 {
   font-size: 18px;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 8px;
 }
 
 .produto-card p {
   font-size: 14px;
-  color: #666;
+  color: #000000;
   margin-bottom: 10px;
 }
 
@@ -176,9 +176,9 @@ main h2 {
 
 /* Botão dentro do card */
 .produto-card button {
-  background-color: #1abc9c;
+  background-color: #ffb700;
   border: none;
-  color: white;
+  color: rgb(255, 170, 0);
   padding: 10px 15px;
   font-size: 15px;
   border-radius: 5px;
@@ -188,7 +188,7 @@ main h2 {
 }
 
 .produto-card button:hover {
-  background-color: #16a085;
+  background-color: #ff9b05;
 }
 
 /* Hobbies */
