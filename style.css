@@ -8,18 +8,19 @@
 /* Corpo da página */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #000000, #4b4b4b); /* Degradê de preto para cinza */
+  background: linear-gradient(135deg, #212121, #424242); /* Gradiente suave de preto para cinza */
   color: #00ff62;
   line-height: 1.6;
 }
 
 /* Cabeçalho */
 header {
-  background-color: #000000;
+  background-color: #1c1c1c; /* Cor de fundo mais suave para o cabeçalho */
   color: #ff9d00;
-  padding: 20px;
+  padding: 20px 40px;
   text-align: center;
   position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Botão de menu (hambúrguer) */
@@ -52,7 +53,7 @@ nav {
   left: -260px;
   width: 260px;
   height: 100%;
-  background: linear-gradient(135deg, #ffb300, #fd9800);
+  background: linear-gradient(135deg, #ff9d00, #ff7b00); /* Gradiente no menu lateral */
   transition: left 0.4s ease;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -82,22 +83,24 @@ nav ul li a {
   transition: background 0.3s ease;
   font-weight: 600;
   border-left: 4px solid transparent;
+  border-radius: 4px;
 }
 
 nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1); /* Leve destaque no hover */
   border-left: 4px solid #ffbf00;
-  color: #ffc209;
+  color: #fff;
 }
 
 /* Conteúdo principal */
 main {
   padding: 30px 20px;
   text-align: center;
+  color: #fff;
 }
 
 main h2 {
-  color: #2c3e50;
+  color: #fff;
   margin-bottom: 15px;
 }
 
@@ -115,10 +118,11 @@ main h2 {
 .produtos h4 {
   margin: 40px 0 20px;
   font-size: 24px;
-  color: #2c3e50;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 5px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
   text-align: left;
+  font-weight: bold;
 }
 
 /* Grade de produtos estilo Mercado Livre/Webmotors */
@@ -139,12 +143,13 @@ main h2 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .produto-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .produto-card img {
@@ -178,7 +183,7 @@ main h2 {
 .produto-card button {
   background-color: #ff9b05; /* Botão laranja */
   border: none;
-  color: rgb(255, 170, 0);
+  color: #fff;
   padding: 10px 15px;
   font-size: 15px;
   border-radius: 5px;
