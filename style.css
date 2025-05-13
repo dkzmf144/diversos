@@ -8,15 +8,15 @@
 /* Corpo da página */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #212121, #424242); /* Gradiente suave de preto para cinza */
-  color: #00ff62;
+  background: linear-gradient(135deg, #53533b, #ffa31a); /* Gradiente suave de preto para cinza */
+  color: #039f3f;
   line-height: 1.6;
 }
 
 /* Cabeçalho */
 header {
-  background-color: #1c1c1c; /* Cor de fundo mais suave para o cabeçalho */
-  color: #ff9d00;
+  background-color: #ffa31a; /* Cor de fundo mais suave para o cabeçalho */
+  color: #000000;
   padding: 20px 40px;
   text-align: center;
   position: relative;
@@ -40,7 +40,7 @@ header {
   display: block;
   width: 100%;
   height: 4px;
-  background-color: #ff9d00;
+  background-color: #ffbf00;
   margin: 6px 0;
   transition: 0.3s ease;
   border-radius: 2px;
@@ -53,7 +53,7 @@ nav {
   left: -260px;
   width: 260px;
   height: 100%;
-  background: linear-gradient(135deg, #ff9d00, #ff7b00); /* Gradiente no menu lateral */
+  background: linear-gradient(135deg, hsl(37, 100%, 70%), #ffc547); /* Gradiente no menu lateral */
   transition: left 0.4s ease;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -87,39 +87,39 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Leve destaque no hover */
-  border-left: 4px solid #ffbf00;
-  color: #fff;
+  background-color: rgb(255, 255, 255); /* Leve destaque no hover */
+  border-left: 4px solid #ffef0a;
+  color: #ff9901;
 }
 
 /* Conteúdo principal */
 main {
   padding: 30px 20px;
   text-align: center;
-  color: #fff;
+  color: #ffffff;
 }
 
 main h2 {
-  color: #fff;
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
 /* Seção de compras */
 #compras {
-  background: #fff;
+  background: #ffa31a;
   border-radius: 8px;
   padding: 30px;
   margin: 30px auto;
   max-width: 1200px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(12, 255, 69, 0.1);
 }
 
 /* Títulos das categorias */
 .produtos h4 {
   margin: 40px 0 20px;
   font-size: 24px;
-  color: #333;
-  border-bottom: 2px solid #ddd;
+  color: #000000;
+  border-bottom: 2px solid #ffffff;
   padding-bottom: 10px;
   text-align: left;
   font-weight: bold;
@@ -135,8 +135,8 @@ main h2 {
 
 /* Cartão de produto */
 .produto-card {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid #000000;
   border-radius: 10px;
   padding: 15px;
   display: flex;
@@ -144,12 +144,12 @@ main h2 {
   align-items: center;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(10, 5, 5, 0.05);
 }
 
 .produto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(248, 2, 2, 0.15);
 }
 
 .produto-card img {
@@ -183,7 +183,7 @@ main h2 {
 .produto-card button {
   background-color: #ff9b05; /* Botão laranja */
   border: none;
-  color: #fff;
+  color: #000000;
   padding: 10px 15px;
   font-size: 15px;
   border-radius: 5px;
