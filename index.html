@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Site de Diversos</title>
+    <title>Mult-compras</title>
   </head>
   <body>
     <header>
-      <button id="menu-toggle">Menu</button>
-      <h1>Mult-compras</h1>
+      <header>
+        <button id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <h1>Principal</h1>
+      </header>
     </header>
+
     <nav id="menu" class="hidden">
       <ul>
         <li><a href="html/login.html">Login</a></li>
@@ -20,6 +27,7 @@
         <li><a href="html/compras.html">Compras</a></li>
       </ul>
     </nav>
+
     <main>
       <h2>Explore a Diversidade</h2>
       <p>
@@ -28,6 +36,7 @@
         hobbies, carros, computadores até produtos incríveis!
       </p>
 
+      <!-- Seção de Compras -->
       <section id="compras">
         <h3>Compras Fictícias</h3>
         <p>
@@ -36,75 +45,44 @@
         </p>
 
         <div class="produtos">
-          <h4>Carros</h4>
-          <ul>
-            <li class="produto-card">
-              <img
-                src="imagens/2024_bZ4X_Limited_AWD_SupersonicRed_002.jpg"
-                alt="Carro Elétrico SuperFast"
-              />
-              <div>
-                <strong>Carro Elétrico SuperFast</strong> - R$ 120.000,00
-                <p>
-                  Um carro elétrico de alta performance, com autonomia de 500 km
-                  por carga e design futurista.
-                </p>
-                <button
-                  onclick="window.location.href='//www.webmotors.com.br/comprar/porsche/cayenne/30-v6-e-hybrid-coupe-awd-tiptronic-s/4-portas/2021/58241694';"
-                >
-                  Detalhes
-                </button>
+          <!-- Carros -->
+          <div class="produto-secao">
+            <h4>Carros</h4>
+            <div class="produto-grid">
+              <div class="produto-card">
+                <img
+                  src="imagens/2024_bZ4X_Limited_AWD_SupersonicRed_002.jpg"
+                  alt="Carro Elétrico SuperFast"
+                />
+                <div>
+                  <h4>Carro Elétrico SuperFast</h4>
+                  <p><strong>R$ 120.000,00</strong></p>
+                  <p>Alta performance com autonomia de 500 km por carga.</p>
+                  <button
+                    onclick="window.location.href='https://www.webmotors.com.br/comprar/porsche/cayenne/30-v6-e-hybrid-coupe-awd-tiptronic-s/4-portas/2021/58241694';"
+                  >
+                    Detalhes
+                  </button>
+                </div>
               </div>
-            </li>
-            <li class="produto-card">
-              <img
-                src="imagens/Dodge-Charger-Hellcat-0-60-scaled.webp"
-                alt="Esportivo TurboDrive"
-              />
-              <div>
-                <strong>Esportivo TurboDrive</strong> - R$ 97.000,00
-                <p>
-                  Carro esportivo com motor turbo, 0-150 km/h em 3.1 segundos.
-                  Para quem ama velocidade
-                </p>
-                <button
-                  onclick="window.location.href='html/compra_carro.html';"
-                >
-                  Detalhes
-                </button>
-              </div>
-            </li>
-            <li class="produto-card">
-              <img src="imagens/lancer.jpg" alt="Carro Compacto EcoDrive" />
-              <div>
-                <strong>Carro Compacto EcoDrive</strong> - R$ 45.000,00
-                <p>
-                  Carro compacto, ideal para cidade. Econômico e eficiente, com
-                  excelente consumo de combustível.
-                </p>
-                <button
-                  onclick="window.location.href='html/compra_carro.html';"
-                >
-                  Detalhes
-                </button>
-              </div>
-            </li>
-          </ul>
 
-          <h4>PCs e Peças</h4>
-          <ul>
-            <li class="produto-card">
-              <img src="imagens/pc_gamer.jpg" alt="PC Gamer Xtreme" />
-              <div>
-                <strong>PC Gamer Xtreme</strong> - R$ 4.500,00
-                <p>
-                  Configuração completa para quem quer jogar os jogos mais
-                  pesados em 4K. Processador Intel i9, 32GB de RAM, GTX 3080.
-                </p>
-                <button onclick="window.location.href='html/compra_pc.html';">
-                  Comprar
-                </button>
+              <div class="produto-card">
+                <img
+                  src="imagens/Dodge-Charger-Hellcat-0-60-scaled.webp"
+                  alt="Esportivo TurboDrive"
+                />
+                <div>
+                  <h4>Esportivo TurboDrive</h4>
+                  <p><strong>R$ 97.000,00</strong></p>
+                  <p>Motor turbo 0-150 km/h em 3.1s. Puro desempenho.</p>
+                  <button
+                    onclick="window.location.href='html/compra_carro.html';"
+                  >
+                    Detalhes
+                  </button>
+                </div>
               </div>
+<<<<<<< HEAD
             </li>
             <li class="produto-card">
               <img
@@ -134,56 +112,131 @@
               </div>
             </li>
           </ul>
+=======
+>>>>>>> ca9d5d7abcabb0d4387ae19245f1e6d80b7dcfb9
 
-          <h4>Peças de Carro</h4>
-          <ul>
-            <li class="produto-card">
-              <img
-                src="imagens/kit_suspensao.jpg"
-                alt="Kit de Suspensão Esportiva"
-              />
-              <div>
-                <strong>Kit de Suspensão Esportiva</strong> - R$ 1.200,00
-                <p>
-                  Suspensão esportiva para carros que buscam mais estabilidade e
-                  desempenho nas curvas.
-                </p>
-                <button onclick="window.location.href='html/compra_peca.html';">
-                  Comprar
-                </button>
+              <div class="produto-card">
+                <img src="imagens/lancer.jpg" alt="Carro Compacto EcoDrive" />
+                <div>
+                  <h4>Carro Compacto EcoDrive</h4>
+                  <p><strong>R$ 45.000,00</strong></p>
+                  <p>Compacto e econômico, ideal para uso urbano.</p>
+                  <button
+                    onclick="window.location.href='html/compra_carro.html';"
+                  >
+                    Detalhes
+                  </button>
+                </div>
               </div>
-            </li>
-            <li class="produto-card">
-              <img
-                src="imagens/disco_freio.jpg"
-                alt="Disco de Freio de Alta Performance"
-              />
-              <div>
-                <strong>Disco de Freio de Alta Performance</strong> - R$ 800,00
-                <p>
-                  Discos de freio de alto desempenho para quem exige mais
-                  precisão e segurança.
-                </p>
-                <button onclick="window.location.href='html/compra_peca.html';">
-                  Comprar
-                </button>
+            </div>
+          </div>
+
+          <!-- PCs e Peças -->
+          <div class="produto-secao">
+            <h4>PCs e Peças</h4>
+            <div class="produto-grid">
+              <div class="produto-card">
+                <img src="imagens/pc_gamer.jpg" alt="PC Gamer Xtreme" />
+                <div>
+                  <h4>PC Gamer Xtreme</h4>
+                  <p><strong>R$ 4.500,00</strong></p>
+                  <p>Intel i9, 32GB RAM, RTX 3080. Pronto para 4K.</p>
+                  <button onclick="window.location.href='html/compra_pc.html';">
+                    Comprar
+                  </button>
+                </div>
               </div>
-            </li>
-            <li class="produto-card">
-              <img src="imagens/rodas_liga_leve.jpg" alt="Rodas de Liga Leve
-              18\"" />
-              <div>
-                <strong>Rodas de Liga Leve 18"</strong> - R$ 2.500,00
-                <p>
-                  Rodas de liga leve para reduzir peso e melhorar a performance
-                  do veículo.
-                </p>
-                <button onclick="window.location.href='html/compra_peca.html';">
-                  Comprar
-                </button>
+
+              <div class="produto-card">
+                <img
+                  src="imagens/placa_video.jpg"
+                  alt="Placa de Vídeo NVIDIA RTX 4080"
+                />
+                <div>
+                  <h4>Placa de Vídeo NVIDIA RTX 4080</h4>
+                  <p><strong>R$ 5.000,00</strong></p>
+                  <p>Desempenho gráfico de ponta para gamers e editores.</p>
+                  <button onclick="window.location.href='html/compra_pc.html';">
+                    Comprar
+                  </button>
+                </div>
               </div>
-            </li>
-          </ul>
+
+              <div class="produto-card">
+                <img
+                  src="imagens/monitor_curvo.jpg"
+                  alt="Monitor Curvo 144Hz 32"
+                />
+                <div>
+                  <h4>Monitor Curvo 144Hz 32"</h4>
+                  <p><strong>R$ 3.200,00</strong></p>
+                  <p>
+                    Ultrawide com cores vibrantes e alta taxa de atualização.
+                  </p>
+                  <button onclick="window.location.href='html/compra_pc.html';">
+                    Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peças de Carro -->
+          <div class="produto-secao">
+            <h4>Peças de Carro</h4>
+            <div class="produto-grid">
+              <div class="produto-card">
+                <img
+                  src="imagens/kit_suspensao.jpg"
+                  alt="Kit de Suspensão Esportiva"
+                />
+                <div>
+                  <h4>Kit de Suspensão Esportiva</h4>
+                  <p><strong>R$ 1.200,00</strong></p>
+                  <p>Mais estabilidade e performance nas curvas.</p>
+                  <button
+                    onclick="window.location.href='html/compra_peca.html';"
+                  >
+                    Comprar
+                  </button>
+                </div>
+              </div>
+
+              <div class="produto-card">
+                <img
+                  src="imagens/disco_freio.jpg"
+                  alt="Disco de Freio de Alta Performance"
+                />
+                <div>
+                  <h4>Disco de Freio de Alta Performance</h4>
+                  <p><strong>R$ 800,00</strong></p>
+                  <p>Segurança e precisão para frenagens agressivas.</p>
+                  <button
+                    onclick="window.location.href='html/compra_peca.html';"
+                  >
+                    Comprar
+                  </button>
+                </div>
+              </div>
+
+              <div class="produto-card">
+                <img
+                  src="imagens/rodas_liga_leve.jpg"
+                  alt="Rodas de Liga Leve 18"
+                />
+                <div>
+                  <h4>Rodas de Liga Leve 18"</h4>
+                  <p><strong>R$ 2.500,00</strong></p>
+                  <p>Visual esportivo com menor peso e mais performance.</p>
+                  <button
+                    onclick="window.location.href='html/compra_peca.html';"
+                  >
+                    Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
