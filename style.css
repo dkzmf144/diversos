@@ -8,19 +8,24 @@
 /* Corpo da página */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000000;
-  color: #ff9d00;
+  background: linear-gradient(
+    135deg,
+    #53533b,
+    #ffa31a
+  ); /* Gradiente suave de preto para cinza */
+  color: #039f3f;
   line-height: 1.6;
 }
 i
 
 /* Cabeçalho */
 header {
-  background-color: #000000;
-  color: #ff9d00;
-  padding: 20px;
+  background-color: #ffa31a; /* Cor de fundo mais suave para o cabeçalho */
+  color: #000000;
+  padding: 20px 40px;
   text-align: center;
   position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Botão de menu (hambúrguer) */
@@ -40,7 +45,7 @@ header {
   display: block;
   width: 100%;
   height: 4px;
-  background-color: #ff9d00;
+  background-color: #ffbf00;
   margin: 6px 0;
   transition: 0.3s ease;
   border-radius: 2px;
@@ -53,7 +58,11 @@ nav {
   left: -260px;
   width: 260px;
   height: 100%;
-  background: linear-gradient(135deg, #ffb300, #fd9800);
+  background: linear-gradient(
+    135deg,
+    hsl(37, 100%, 70%),
+    #ffc547
+  ); /* Gradiente no menu lateral */
   transition: left 0.4s ease;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -83,43 +92,46 @@ nav ul li a {
   transition: background 0.3s ease;
   font-weight: 600;
   border-left: 4px solid transparent;
+  border-radius: 4px;
 }
 
 nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-left: 4px solid #ffbf00;
-  color: #ffc209;
+  background-color: rgb(255, 255, 255); /* Leve destaque no hover */
+  border-left: 4px solid #ffef0a;
+  color: #ff9901;
 }
 
 /* Conteúdo principal */
 main {
   padding: 30px 20px;
   text-align: center;
+  color: #ffffff;
 }
 
 main h2 {
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
 /* Seção de compras */
 #compras {
-  background: #fff;
+  background: #ffa31a;
   border-radius: 8px;
   padding: 30px;
   margin: 30px auto;
   max-width: 1200px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(12, 255, 69, 0.1);
 }
 
 /* Títulos das categorias */
 .produtos h4 {
   margin: 40px 0 20px;
   font-size: 24px;
-  color: #2c3e50;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 5px;
+  color: #000000;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
   text-align: left;
+  font-weight: bold;
 }
 
 /* Grade de produtos estilo Mercado Livre/Webmotors */
@@ -132,20 +144,21 @@ main h2 {
 
 /* Cartão de produto */
 .produto-card {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid #000000;
   border-radius: 10px;
   padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(10, 5, 5, 0.05);
 }
 
 .produto-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(248, 2, 2, 0.15);
 }
 
 .produto-card img {
@@ -178,8 +191,9 @@ main h2 {
 /* Botão dentro do card */
 .produto-card button {
   background-color: #000000;
+  background-color: #ff9b05; /* Botão laranja */
   border: none;
-  color: rgb(255, 170, 0);
+  color: #000000;
   padding: 10px 15px;
   font-size: 15px;
   border-radius: 5px;
@@ -189,7 +203,7 @@ main h2 {
 }
 
 .produto-card button:hover {
-  background-color: #ff9b05;
+  background-color: #ff7b00; /* Laranja mais forte ao passar o mouse */
 }
 
 /* Hobbies */
