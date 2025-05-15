@@ -12,6 +12,7 @@ body {
   color: #ff9d00;
   line-height: 1.6;
 }
+i
 
 /* Cabeçalho */
 header {
@@ -176,7 +177,7 @@ main h2 {
 
 /* Botão dentro do card */
 .produto-card button {
-  background-color: #ffb700;
+  background-color: #000000;
   border: none;
   color: rgb(255, 170, 0);
   padding: 10px 15px;
