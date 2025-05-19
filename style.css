@@ -10,21 +10,23 @@ body {
   height: 100%;
 }
 
-/* Plano de fundo geral com degradê */
+/* Fundo com degradê de baixo para cima */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #000000;
   line-height: 1.6;
-  background: linear-gradient(135deg, #3000ba, #a600ff);
+  background: linear-gradient(to top, #fcb220, #fd7e00);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
 /* Cabeçalho */
 header {
-  background-color: #5d2af7;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   padding: 20px 40px;
   text-align: center;
   position: relative;
@@ -48,13 +50,13 @@ header {
   display: block;
   width: 100%;
   height: 4px;
-  background-color: #00eeff;
+  background-color: #000000;
   margin: 6px 0;
   transition: 0.3s ease;
   border-radius: 2px;
 }
 
-/* Menu lateral moderno */
+/* Menu lateral */
 nav {
   position: fixed;
   top: 0;
@@ -96,15 +98,15 @@ nav ul li a {
 
 nav ul li a:hover {
   background-color: rgb(255, 255, 255);
-  border-left: 4px solid #0a33ff;
-  color: #c801ff;
+  border-left: 4px solid #fdfdfd;
+  color: #454545;
 }
 
 /* Conteúdo principal */
 main {
   padding: 30px 20px;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
 }
 
 main h2 {
@@ -114,7 +116,7 @@ main h2 {
 
 /* Seção de compras */
 #compras {
-  background: rgba(111, 1, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   padding: 30px;
   margin: 30px auto;
@@ -122,7 +124,7 @@ main h2 {
   box-shadow: 0 5px 15px rgba(12, 255, 69, 0.1);
 }
 
-/* Títulos das categorias */
+/* Categorias de produtos */
 .produtos h4 {
   margin: 40px 0 20px;
   font-size: 24px;
@@ -141,9 +143,9 @@ main h2 {
   margin-top: 20px;
 }
 
-/* Cartão de produto */
+/* Cartões de produto */
 .produto-card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--card-bg);
   border: 1px solid #000000;
   border-radius: 10px;
   padding: 15px;
@@ -168,34 +170,37 @@ main h2 {
   margin-bottom: 10px;
 }
 
+.produto-card h4,
+.produto-card p,
+.produto-card strong {
+  color: #000000;
+}
+
 .produto-card h4 {
   font-size: 18px;
-  color: #000000;
   margin-bottom: 8px;
 }
 
 .produto-card p {
   font-size: 14px;
-  color: #000000;
   margin-bottom: 10px;
 }
 
 .produto-card strong {
   font-size: 16px;
-  color: #000;
   display: block;
   margin-bottom: 8px;
 }
 
 .produto-card button {
-  background-color: #9705ff;
-  border: none;
-  color: #000000;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   padding: 10px 15px;
   font-size: 15px;
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
+  border: none;
   transition: background-color 0.3s ease;
 }
 
@@ -203,29 +208,56 @@ main h2 {
   background-color: #00ccff;
 }
 
-/* Hobbies */
-#hobbies {
-  margin-top: 50px;
+/* Tema Claro */
+:root {
+  --bg-color: #fafafa;
+  --text-color: #111;
+  --card-bg: #fffefe;
+  --accent-color: #0a0808;
+  --button-bg: var(--accent-color);
+  --button-text: #000000;
 }
 
-.hobby-list {
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
+/* Tema Escuro */
+.dark-mode {
+  --bg-color: #0b0e2e;
+  --text-color: #f0f0f0;
+  --card-bg: #1c1f3a;
+  --accent-color: #000000;
+  --button-bg: var(--accent-color);
+  --button-text: #fff;
+}
+/* Tema escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
 }
 
-.hobby-list h4 {
-  font-size: 22px;
-  color: #2c3e50;
-  margin-top: 20px;
+body.dark-mode header {
+  background-color: #1f1f1f;
+  color: #ffffff;
 }
 
-.hobby-list ul {
-  list-style-type: square;
-  padding-left: 20px;
+body.dark-mode .produto-card {
+  background-color: #2c2c2c;
+  color: #fff;
 }
 
-/* Responsivo */
+body.dark-mode button {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Botão de troca de tema */
+.btn-tema {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  font-size: 20px;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
   .produto-card img {
     max-height: 150px;
@@ -235,57 +267,4 @@ main h2 {
     top: 10px;
     left: 10px;
   }
-}
-
-/* Tema Claro (padrão) */
-:root {
-  --bg-color: #f5f6ff;
-  --text-color: #111;
-  --card-bg: #ffffff;
-  --accent-color: #6f00ff;
-  --button-bg: var(--accent-color);
-  --button-text: #fff;
-}
-
-/* Tema Escuro */
-.dark-mode {
-  --bg-color: #0b0e2e;
-  --text-color: #f0f0f0;
-  --card-bg: #1c1f3a;
-  --accent-color: #00a8e8;
-  --button-bg: var(--accent-color);
-  --button-text: #fff;
-}
-
-/* Aplicação das variáveis */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.3s ease;
-}
-
-.produto-card {
-  background-color: var(--card-bg);
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
-}
-
-button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn-tema {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  background: none;
-  font-size: 20px;
 }

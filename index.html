@@ -5,36 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Mult-compras</title>
-    <button onclick="alternarTema()" class="btn-tema">🌓</button>
   </head>
   <body>
     <header>
-      <button id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <h1>Mult-compras</h1>
+      <nav id="menu">
+        <ul>
+          <li><a href="html/login.html">Logins</a></li>
+          <li><a href="html/cadastro.html">Cadastro</a></li>
+          <li><a href="html/pc.html">Computadores</a></li>
+          <li><a href="html/hobbies.html">Hobbies</a></li>
+          <li><a href="html/compras.html">Compras</a></li>
+        </ul>
+      </nav>
+      <button class="btn-tema" id="toggle-theme">🌙</button>
     </header>
 
-    <nav id="menu" class="hidden">
-      <ul>
-        <li><a href="html/login.html">Logins</a></li>
-        <li><a href="html/cadastro.html">Cadastro</a></li>
-        <li><a href="html/pc.html">Computadores</a></li>
-        <li><a href="html/hobbies.html">Hobbies</a></li>
-        <li><a href="html/compras.html">Compras</a></li>
-      </ul>
-    </nav>
-
     <main>
-      <h2>Explore a Diversidade</h2>
-      <p>
-        Este é um espaço dedicado à celebração da diversidade em todas as suas
-        formas. Aqui você encontrará uma variedade de tópicos que abrangem desde
-        hobbies, carros, computadores até produtos incríveis!
-      </p>
-
       <!-- Seção de Compras -->
       <section id="compras">
         <h3>Compras Fictícias</h3>
