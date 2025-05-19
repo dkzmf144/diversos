@@ -15,3 +15,7 @@ document.addEventListener("click", function (event) {
     menu.classList.remove("visible");
   }
 });
+
+function alternarTema() {
+  document.body.classList.toggle("dark-mode");
+}

@@ -236,3 +236,56 @@ main h2 {
     left: 10px;
   }
 }
+
+/* Tema Claro (padrão) */
+:root {
+  --bg-color: #f5f6ff;
+  --text-color: #111;
+  --card-bg: #ffffff;
+  --accent-color: #6f00ff;
+  --button-bg: var(--accent-color);
+  --button-text: #fff;
+}
+
+/* Tema Escuro */
+.dark-mode {
+  --bg-color: #0b0e2e;
+  --text-color: #f0f0f0;
+  --card-bg: #1c1f3a;
+  --accent-color: #00a8e8;
+  --button-bg: var(--accent-color);
+  --button-text: #fff;
+}
+
+/* Aplicação das variáveis */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.produto-card {
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-tema {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  font-size: 20px;
+}
