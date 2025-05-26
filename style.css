@@ -268,3 +268,20 @@ body.dark-mode button {
     left: 10px;
   }
 }
+
+
+/* Estilos para o vídeo de abertura */
+#video-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 9999;
+  background-color: black;
+}
+
+/* Para garantir que o conteúdo só apareça depois que o vídeo sumir,
+   você pode colocar display:none e remover via JS, 
+   mas como o vídeo está cobrindo, não é obrigatório */

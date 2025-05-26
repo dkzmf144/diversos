@@ -1,40 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <title>Login - Site de Diversidade</title>
-  </head>
-  <body>
-    <header>
-      <a href="../index.html" class="botao-voltar">voltar</a>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <form onsubmit="event.preventDefault(); window.location.href='index.html';">
+    <label for="username">Usuário:</label>
+    <input type="text" id="username" name="username" required>
 
-      <h1>Login</h1>
-    </header>
-    <nav id="menu" class="hidden">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-        <li><a href="pc.html">Computadores</a></li>
-        <li><a href="hobbies.html">Hobbies</a></li>
-      </ul>
-    </nav>
-    <main>
-      <h2>Acesse sua Conta</h2>
-      <p>Insira suas credenciais para entrar.</p>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required>
 
-      <form action="#" method="POST" class="formulario">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required />
+    <button type="button" onclick="window.location.href='../index.html';">Entrar</button>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required />
+  </form>
 
-        <button type="button" id="btn-entrar">Entrar</button>
-      </form>
-      <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
-    </main>
-    <script src="../java/login.js"></script>
-  </body>
+  <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+</body>
 </html>
