@@ -81,19 +81,30 @@ nav a:hover {
 
 /* Produtos */
 .produtos {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
   gap: 30px;
-  flex-wrap: wrap;
   padding: 40px;
+  max-width: 960px;
+  margin: 0 auto; /* centraliza o grid */
 }
 
 .produto {
+  width: 300px;
   background-color: #1a1a1a;
   border: 2px solid #333;
   border-radius: 10px;
   overflow: hidden;
-  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.produto {
+  width: 300px;
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -136,4 +147,67 @@ footer {
   background-color: #111;
   border-top: 2px solid #f9d84a;
   font-size: 14px;
+}
+
+/* Seção de Jogos Online */
+.jogos-online {
+  padding: 60px 20px;
+  background-color: #121212;
+  text-align: center;
+}
+
+.jogos-online h2 {
+  color: #f9d84a;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px #000;
+}
+
+.jogos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.jogo-card {
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  max-width: 250px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.jogo-card:hover {
+  transform: scale(1.05);
+  border-color: #f9d84a;
+  box-shadow: 0 0 15px #f9d84a55;
+}
+
+.jogo-card img {
+  width: 100%;
+  height: auto;
+}
+
+.jogo-card h3 {
+  color: #f9d84a;
+  margin: 15px 0;
+}
+
+.jogo-card a {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: #f9d84a;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.jogo-card a:hover {
+  background-color: #fff;
+  color: #000;
 }
