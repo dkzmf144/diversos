@@ -1,0 +1,45 @@
+<!-- intro.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abertura</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: black;
+      }
+      video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="video-intro" autoplay muted playsinline>
+      <source
+        src="../imagens/GTA Online： The Diamond Casino & Resort.mp4"
+        type="video/mp4"
+      />
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+
+    <script>
+      const videoIntro = document.getElementById("video-intro");
+
+      videoIntro.addEventListener("ended", () => {
+        window.location.href = "../html/cassino.html"; // redireciona para a página principal
+      });
+
+      // segurança extra: redireciona após X segundos (caso 'ended' falhe)
+      setTimeout(() => {
+        window.location.href = "../html/cassino.html";
+      }, 10000); // tempo igual ou maior que a duração do vídeo
+    </script>
+  </body>
+</html>
