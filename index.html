@@ -1,194 +1,41 @@
+<!-- intro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Mult-compras</title>
-  </head>
-  <body>
-    <header>
-      <h1>Mult-compras</h1>
-      <nav id="menu">
-        <ul>
-          <li><a href="html/login.html">Logins</a></li>
-          <li><a href="html/cadastro.html">Cadastro</a></li>
-          <li><a href="html/pc.html">Computadores</a></li>
-          <li><a href="html/hobbies.html">Hobbies</a></li>
-          <li><a href="html/compras.html">Compras</a></li>
-        </ul>
-      </nav>
-      <button class="btn-tema" id="toggle-theme">🌙</button>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abertura</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <video id="video-intro" autoplay muted playsinline>
+    <source src="imagens/GTA V  Rockstar Games logo intro (1).mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo HTML5.
+  </video>
 
-    <main>
-      <!-- Seção de Compras -->
-      <section id="compras">
-        <h3>Compras Fictícias</h3>
-        <p>
-          Explore uma seleção de produtos fictícios com foco em carros, PCs e
-          peças. Aproveite as promoções e novidades!
-        </p>
+  <script>
+    const videoIntro = document.getElementById('video-intro');
 
-        <div class="produtos">
-          <!-- Carros -->
-          <div class="produto-secao">
-            <h4>Carros</h4>
-            <div class="produto-grid">
-              <div class="produto-card">
-                <img
-                  src="imagens/2024_bZ4X_Limited_AWD_SupersonicRed_002.jpg"
-                  alt="Carro Elétrico SuperFast"
-                />
-                <div>
-                  <h4>Carro Elétrico SuperFast</h4>
-                  <p><strong>R$ 120.000,00</strong></p>
-                  <p>Alta performance com autonomia de 500 km por carga.</p>
-                  <button
-                    onclick="window.location.href='https://www.webmotors.com.br/comprar/porsche/cayenne/30-v6-e-hybrid-coupe-awd-tiptronic-s/4-portas/2021/58241694';"
-                  >
-                    Detalhes
-                  </button>
-                </div>
-              </div>
+    videoIntro.addEventListener('ended', () => {
+      window.location.href = "index.html"; // redireciona para a página principal
+    });
 
-              <div class="produto-card">
-                <img
-                  src="imagens/Dodge-Charger-Hellcat-0-60-scaled.webp"
-                  alt="Esportivo TurboDrive"
-                />
-                <div>
-                  <h4>Esportivo TurboDrive</h4>
-                  <p><strong>R$ 97.000,00</strong></p>
-                  <p>Motor turbo 0-150 km/h em 3.1s. Puro desempenho.</p>
-                  <button
-                    onclick="window.location.href='html/compra_carro.html';"
-                  >
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-
-              <div class="produto-card">
-                <img src="imagens/lancer.jpg" alt="Carro Compacto EcoDrive" />
-                <div>
-                  <h4>Carro Compacto EcoDrive</h4>
-                  <p><strong>R$ 45.000,00</strong></p>
-                  <p>Compacto e econômico, ideal para uso urbano.</p>
-                  <button
-                    onclick="window.location.href='html/compra_carro.html';"
-                  >
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- PCs e Peças -->
-          <div class="produto-secao">
-            <h4>PCs e Peças</h4>
-            <div class="produto-grid">
-              <div class="produto-card">
-                <img src="imagens/PCgamer.png.jfif" alt="PC Gamer Xtreme" />
-                <div>
-                  <h4>PC Gamer Xtreme</h4>
-                  <p><strong>R$ 4.500,00</strong></p>
-                  <p>Intel i9, 32GB RAM, RTX 3080. Pronto para 4K.</p>
-                  <button onclick="window.location.href='html/compra_pc.html';">
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-
-              <div class="produto-card">
-                <img
-                  src="imagens/nvidia.hpg.jfif"
-                  alt="Placa de Vídeo NVIDIA RTX 4080"
-                />
-                <div>
-                  <h4>Placa de Vídeo NVIDIA RTX 4080</h4>
-                  <p><strong>R$ 5.000,00</strong></p>
-                  <p>Desempenho gráfico de ponta para gamers e editores.</p>
-                  <button onclick="window.location.href='html/compra_pc.html';">
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-
-              <div class="produto-card">
-                <img src="imagens/telacurva.png" alt="Monitor Curvo 144Hz 32" />
-                <div>
-                  <h4>Monitor Curvo 144Hz 32"</h4>
-                  <p><strong>R$ 3.200,00</strong></p>
-                  <p>
-                    Ultrawide com cores vibrantes e alta taxa de atualização.
-                  </p>
-                  <button onclick="window.location.href='html/compra_pc.html';">
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Peças de Carro -->
-          <div class="produto-secao">
-            <h4>Peças de Carro</h4>
-            <div class="produto-grid">
-              <div class="produto-card">
-                <img
-                  src="imagens/suspensao.png"
-                  alt="Kit de Suspensão Esportiva"
-                />
-                <div>
-                  <h4>Kit de Suspensão Esportiva</h4>
-                  <p><strong>R$ 1.200,00</strong></p>
-                  <p>Mais estabilidade e performance nas curvas.</p>
-                  <button
-                    onclick="window.location.href='html/compra_peca.html';"
-                  >
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-
-              <div class="produto-card">
-                <img
-                  src="imagens/freios.png"
-                  alt="Disco de Freio de Alta Performance"
-                />
-                <div>
-                  <h4>Disco de Freio de Alta Performance</h4>
-                  <p><strong>R$ 800,00</strong></p>
-                  <p>Segurança e precisão para frenagens agressivas.</p>
-                  <button
-                    onclick="window.location.href='html/compra_peca.html';"
-                  >
-                    Detalhes
-                  </button>
-                </div>
-              </div>
-
-              <div class="produto-card">
-                <img src="imagens/roda.png" alt="Rodas de Liga Leve 18" />
-                <div>
-                  <h4>Rodas de Liga Leve 18"</h4>
-                  <p><strong>R$ 2.500,00</strong></p>
-                  <p>Visual esportivo com menor peso e mais performance.</p>
-                  <button
-                    onclick="window.location.href='html/compra_peca.html';"
-                  >
-                    Comprar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script src="java/script.js"></script>
-  </body>
+    // segurança extra: redireciona após X segundos (caso 'ended' falhe)
+    setTimeout(() => {
+      window.location.href = "html/inicial.html";
+    }, 10000); // tempo igual ou maior que a duração do vídeo
+  </script>
+</body>
 </html>
