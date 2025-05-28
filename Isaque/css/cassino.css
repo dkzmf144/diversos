@@ -91,6 +91,7 @@ nav a:hover {
 
 .produto {
   width: 300px;
+  height: 430px;
   background-color: #1a1a1a;
   border: 2px solid #333;
   border-radius: 10px;
@@ -210,4 +211,19 @@ footer {
 .jogo-card a:hover {
   background-color: #fff;
   color: #000;
+}
+
+.info {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.info h1 {
+  font-size: 32px;
+  color: #f9d84a;
+}
+
+.info p {
+  font-size: 18px;
+  color: #ccc;
 }
