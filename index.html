@@ -1,121 +1,45 @@
+<!-- intro.html -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eyefind - GTA V</title>
-    <link rel="stylesheet" href="../diversos/Isaque/css/style.css" />
+    <title>Abertura</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: black;
+      }
+      video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <div class="logo">Los<strong>Santos</strong>.shop</div>
-      <div>Inbox | Redigir novo</div>
-    </header>
+    <video id="video-intro" autoplay muted playsinline>
+      <source
+        src="Isaque/imagens/GTA V  Rockstar Games logo intro (1).mp4"
+        type="video/mp4"
+      />
+      Seu navegador não suporta vídeo HTML5.
+    </video>
 
-    <div class="search-bar">
-      <input type="text" placeholder="Procurar no Eyefind" />
-    </div>
+    <script>
+      const videoIntro = document.getElementById("video-intro");
 
-    <div class="menu">
-      <div>🎬Mídia e Entretenimento</div>
-      <div>🍔Comida e Bebida</div>
-      <div>💰Dinheiro e Serviços</div>
-      <div>✈️Viagem e Transporte</div>
-      <div>💊Moda e Saúde</div>
-    </div>
+      videoIntro.addEventListener("ended", () => {
+        window.location.href = "../diversos/isaque/html/inicial.html"; // redireciona para a página principal
+      });
 
-    <!-- Anúncios Patrocinados destacados centralizados -->
-    <div class="ads-destaque">
-      <div class="ad destaque">
-        <div class="titulo-patrocinado">Publicidade Patrocinada</div>
-        <img
-          src="../imagens/Los_Santos_Customs_logo.png"
-          alt="Legendary Motorsport"
-        />
-        <p>🏎️ Legendary Motorsport</p>
-        <a href="../Adryan144/index.html" target="_blank">
-          <button class="details-button">Ver Detalhes</button>
-        </a>
-      </div>
-    
-      <div class="ad destaque">
-        <div class="titulo-patrocinado">Publicidade Patrocinada</div>
-        <img src="../imagens/Los.png" alt="The Diamond Casino" />
-        <p>🎰 The Diamond Casino</p>
-        <a href="introcassino.html" target="_blank">
-          <button class="details-button">Ver Detalhes</button>
-        </a>
-      </div>
-    
-      <div class="ad destaque">
-        <div class="titulo-patrocinado">Publicidade Patrocinada</div>
-        <img
-          src="../imagens/fiat-strada-2023.jpg"
-          alt="Southern San Andreas Super Autos"
-        />
-        <p>🚗 Southern San Andreas Super Autos</p>
-        <a href="/Isaque/html/perfil.html" target="_blank">
-          <button class="details-button">Ver Detalhes</button>
-        </a>
-      </div>
-    </div>
-    
-
-    <!-- Anúncios comuns em grade abaixo -->
-    <div class="ads-comuns">
-      <div class="ad">
-        <img
-          src="../imagens/maze-bank-foreclosures.png"
-          alt="Maze Bank Foreclosure"
-        />
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/warstock" target="_blank">
-          <img src="../imagens/militares.jfif" alt="Warstock Cache & Carry" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/arena-war" target="_blank">
-          <img src="../imagens/teste.png" alt="Arena War" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/elitas" target="_blank">
-          <img src="../imagens/teste.png" alt="Elitás Travel" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/dynasty8" target="_blank">
-          <img src="../imagens/teste.png" alt="Dynasty 8" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/classic-vinewood" target="_blank">
-          <img src="../imagens/teste.png" alt="Classic Vinewood" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/sue-murry" target="_blank">
-          <img src="../imagens/teste.png" alt="Sue Murry" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/cult-stoppers" target="_blank">
-          <img src="../imagens/teste.png" alt="Cult Stoppers" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/maze-bank" target="_blank">
-          <img src="../imagens/teste.png" alt="Maze Bank" />
-        </a>
-      </div>
-      <div class="ad">
-        <a href="https://exemplo.com/dock-tease" target="_blank">
-          <img src="../imagens/teste.png" alt="Dock Tease" />
-        </a>
-      </div>
-      
-
-    <div class="footer">Inspirado no navegador do GTA V</div>
+      // segurança extra: redireciona após X segundos (caso 'ended' falhe)
+      setTimeout(() => {
+        window.location.href = "../diversos/isaque/html/inicial.html";
+      }, 10000); // tempo igual ou maior que a duração do vídeo
+    </script>
   </body>
 </html>
