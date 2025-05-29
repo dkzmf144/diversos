@@ -1,0 +1,255 @@
+/* Reset geral */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #2a2a2a; /* fundo cinza escuro */
+  color: #d1d1d1; /* texto cinza claro */
+}
+
+/* Layout padrão */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: #333333; /* cinza escuro */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #e1e1e1;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #d1d1d1;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Menu lateral */
+#menu {
+  display: none;
+  border: 1px solid #888;
+  padding: 10px;
+  background-color: #2a2a2a;
+  position: absolute;
+  z-index: 1000;
+}
+
+#menu a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #aaa;
+}
+
+#menu a:hover {
+  background-color: #444444;
+}
+
+/* Main */
+main {
+  padding: 20px;
+  flex: 1;
+}
+
+/* Seções */
+section {
+  margin: 20px 0;
+  padding: 20px;
+  background: #1f1f1f;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulários */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #ddd;
+}
+
+/* Links e botões */
+a {
+  color: #d1d1d1;
+}
+
+a:hover {
+  color: #b0b0b0;
+}
+
+/* Dicas e Peças */
+.frase {
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.frase:hover {
+  color: #888;
+}
+
+h2 {
+  color: #e1e1e1;
+}
+
+#pecas ul,
+#dicas ul {
+  list-style: none;
+  padding: 0;
+}
+
+#pecas ul li,
+#dicas ul li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  color: #d1d1d1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#pecas ul li:hover,
+#dicas ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#pecas ul li a,
+#dicas ul li a {
+  color: #d1d1d1;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+#pecas ul li a:hover,
+#dicas ul li a:hover {
+  color: #bce5d581;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background: #333333;
+  color: #d1d1d1;
+  width: 100%;
+}
+
+/* Seção de Venda de PCs */
+#venda {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#venda h2 {
+  color: #d1d1d1;
+}
+
+.pc-item {
+  display: inline-block;
+  width: 250px;
+  margin: 20px;
+  padding: 15px;
+  background-color: #3c3c3c;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pc-item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.pc-item h3 {
+  color: #e1e1e1;
+  margin-top: 10px;
+}
+
+.pc-item p {
+  color: #d1d1d1;
+}
+
+.pc-item .preco {
+  font-size: 1.2em;
+  color: #e54b4b;
+  margin: 10px 0;
+}
+
+.pc-item button {
+  background-color: #555;
+  color: #d1d1d1;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.pc-item button:hover {
+  background-color: #777;
+}
+
+.pc-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção de imagem com troca dinâmica */
+#imagem {
+  width: 400px;
+  height: 300px;
+  transition: opacity 1s ease-in-out;
+  margin: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
