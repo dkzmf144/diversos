@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treinar Galos</title>
+    <link rel="stylesheet" href="../css/treino.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🏋️‍♂️ Treinamento dos Galos</h1>
+      <a href="../html/meus-galos.html">Voltar para Meus Galos</a>
+    </header>
+
+    <main>
+      <select id="galoSelect">
+        <option value="">Selecione um galo</option>
+      </select>
+
+      <div id="treinos" style="display: none">
+        <h2 id="nomeGaloSelecionado"></h2>
+        <button onclick="treinar('forca')">💪 Força</button>
+        <button onclick="treinar('velocidade')">⚡ Velocidade</button>
+        <button onclick="treinar('resistencia')">🛡️ Resistência</button>
+        <button onclick="treinar('precisao')">🎯 Precisão</button>
+      </div>
+    </main>
+
+    <script src="../java/treino.js"></script>
+  </body>
+</html>

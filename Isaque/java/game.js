@@ -5,13 +5,13 @@ canvas.width = 800;
 canvas.height = 400;
 
 const arenaBg = new Image();
-arenaBg.src = "imagens/arena.jpg";
+arenaBg.src = "/isaque/imagens/arena.webp";
 
 const galoVermelhoImg = new Image();
 galoVermelhoImg.src = "imagens/galopretobriga.jfif"; // ajustei o caminho
 
 const galoAzulImg = new Image();
-galoAzulImg.src = "imagens/galobrilho.jfif"; // você tinha só a pasta, coloquei nome do arquivo (exemplo)
+galoAzulImg.src = "/imagens/galobriga.jfif"; // você tinha só a pasta, coloquei nome do arquivo (exemplo)
 
 const galo1 = {
   x: 150,

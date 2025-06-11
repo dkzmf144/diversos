@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meus Galos - LosVices</title>
+    <link rel="stylesheet" href="../css/meu-galo.css" />
+  </head>
+  <body>
+    <h1>Meus Galos</h1>
+    <div id="meus-galos"></div>
+
+    <script src="../java/meu-galo.js"></script>
+  </body>
+</html>
+<script>
+  localStorage.setItem(
+    "meusGalos",
+    JSON.stringify([
+      {
+        nome: "Galo Vermelho",
+        img: "../isaque/imagens/galopretobriga.jfif",
+        velocidade: 5,
+        forca: 6,
+        resistencia: 4,
+        precisao: 7,
+        energia: 100,
+        fome: 0,
+      },
+      {
+        nome: "Galo Azul",
+        img: "../isaque/imagens/galoverdebriga.jfif",
+        velocidade: 6,
+        forca: 5,
+        resistencia: 6,
+        precisao: 5,
+        energia: 100,
+        fome: 0,
+      },
+    ])
+  );
+</script>

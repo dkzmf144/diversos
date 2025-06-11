@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arena de Batalha - Galos</title>
+    <link rel="stylesheet" href="../css/arena.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Arena de Batalha 🥊🐓</h1>
+      <a href="meus-galos.html">← Voltar</a>
+    </header>
+
+    <main>
+      <div id="arena">
+        <canvas id="arenaCanvas" width="800" height="400"></canvas>
+      </div>
+
+      <section id="status">
+        <div class="galoStatus" id="statusGalo1">
+          <h2 id="nomeGalo1">Galo Vermelho</h2>
+          <p>Vida: <span id="vidaGalo1">100</span></p>
+        </div>
+        <div class="galoStatus" id="statusGalo2">
+          <h2 id="nomeGalo2">Galo Azul</h2>
+          <p>Vida: <span id="vidaGalo2">100</span></p>
+        </div>
+      </section>
+
+      <button id="iniciarBatalha">Iniciar Batalha</button>
+    </main>
+
+    <script src="../java/arena.js"></script>
+  </body>
+</html>

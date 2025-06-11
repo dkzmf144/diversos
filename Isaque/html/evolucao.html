@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evolução dos Galos</title>
+    <link rel="stylesheet" href="../css/evolucao.css" />
+  </head>
+  <body>
+    <header>
+      <h1>📈 Evoluir Meus Galos</h1>
+      <a href="meus-galos.html">← Voltar</a>
+    </header>
+
+    <main>
+      <select id="galoSelect">
+        <option value="">Selecione um galo</option>
+      </select>
+
+      <section id="infoGalo" style="display: none">
+        <h2 id="nomeGalo"></h2>
+        <p>Pontos de treino disponíveis: <span id="pontos"></span></p>
+
+        <div class="atributo">
+          Força: <span id="forca"></span>
+          <button onclick="evoluir('forca')">+</button>
+        </div>
+        <div class="atributo">
+          Velocidade: <span id="velocidade"></span>
+          <button onclick="evoluir('velocidade')">+</button>
+        </div>
+        <div class="atributo">
+          Resistência: <span id="resistencia"></span>
+          <button onclick="evoluir('resistencia')">+</button>
+        </div>
+        <div class="atributo">
+          Precisão: <span id="precisao"></span>
+          <button onclick="evoluir('precisao')">+</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="../java/evolucao.js"></script>
+  </body>
+</html>
