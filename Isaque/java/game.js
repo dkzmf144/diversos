@@ -8,10 +8,10 @@ const arenaBg = new Image();
 arenaBg.src = "imagens/arena.jpg";
 
 const galoVermelhoImg = new Image();
-galoVermelhoImg.src = "../imagens/galopretobriga.jfif";
+galoVermelhoImg.src = "imagens/galopretobriga.jfif"; // ajustei o caminho
 
 const galoAzulImg = new Image();
-galoAzulImg.src = "../imagens/";
+galoAzulImg.src = "imagens/galobrilho.jfif"; // você tinha só a pasta, coloquei nome do arquivo (exemplo)
 
 const galo1 = {
   x: 150,
@@ -41,6 +41,7 @@ function drawLifeBars() {
 }
 
 function update() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(arenaBg, 0, 0, canvas.width, canvas.height);
   drawGalo(galo1, galoVermelhoImg);
   drawGalo(galo2, galoAzulImg);
@@ -54,6 +55,10 @@ function ataqueAleatorio() {
   galo1.life -= dano2;
   galo2.life -= dano1;
 
+  // Evita vida negativa
+  if (galo1.life < 0) galo1.life = 0;
+  if (galo2.life < 0) galo2.life = 0;
+
   if (galo1.life <= 0 || galo2.life <= 0) {
     clearInterval(combate);
     setTimeout(() => {
@@ -63,9 +68,19 @@ function ataqueAleatorio() {
   }
 }
 
-const combate = setInterval(() => {
-  ataqueAleatorio();
-  update();
-}, 1000);
+// Atualiza só quando as duas imagens carregarem
+let imagensCarregadas = 0;
+function checarCarregamento() {
+  imagensCarregadas++;
+  if (imagensCarregadas === 3) {
+    update();
+    combate = setInterval(() => {
+      ataqueAleatorio();
+      update();
+    }, 1000);
+  }
+}
 
-arenaBg.onload = update;
+arenaBg.onload = checarCarregamento;
+galoVermelhoImg.onload = checarCarregamento;
+galoAzulImg.onload = checarCarregamento;
