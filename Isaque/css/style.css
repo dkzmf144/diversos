@@ -54,6 +54,13 @@ header {
   cursor: pointer;
 }
 
+.menu div {
+  cursor: pointer;
+}
+.menu div:focus {
+  outline: 2px solid #00f; /* Destaque no foco (opcional) */
+}
+
 /* Grade de anúncios comuns */
 /* Fixar 5 colunas lado a lado, centralizado */
 .ads-comuns {
