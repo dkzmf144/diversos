@@ -33,12 +33,12 @@
       const videoIntro = document.getElementById("video-intro");
 
       videoIntro.addEventListener("ended", () => {
-        window.location.href = "../html/inicial.html"; // redireciona para a página principal
+        window.location.href = "inicial.html"; // redireciona para a página principal
       });
 
       // segurança extra: redireciona após X segundos (caso 'ended' falhe)
       setTimeout(() => {
-        window.location.href = "../html/inicial.html";
+        window.location.href = "inicial.html";
       }, 10000); // tempo igual ou maior que a duração do vídeo
     </script>
   </body>
