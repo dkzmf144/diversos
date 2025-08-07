@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif; /* Corrigido para uma fonte válida */
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}    
+
+.anuncio {
+    background-color: #ffffff;
+    border: 1px solid #392f2f;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto; /* Corrigido o erro de digitação */
+    /* Adicionar 'text-align' ou outra propriedade faltante aqui */
+}
+
+h1 {
+    color: #333;
+}
+
+.preco {
+    font-size: 24px;
+    color: #047f0a; /* Corrigido para uma cor válida */
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #484e52; /* Cor do botão */
+    color: #fff; /* Cor do texto do botão */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.botao:hover {
+    background-color: #414345; /* Cor do botão ao passar o mouse */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
