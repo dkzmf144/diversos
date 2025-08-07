@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.anuncio, .fipe {
+    width: 48%;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+}
+
+.preco {
+    font-size: 1.5em;
+    color: #1a8917;
+    margin-top: 10px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #034f14; 
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.butao {
+    display: inline-block;
+    padding: 10px 20px;
+   background: linear-gradient(to right, #34333a, #535255); 
+      color: rgb(255, 255, 255);
+      transition: background-image 0.3s ease-in-out;}
+
+.botao:hover {
+    background-color: #08f12b; 
+}
+
+.tabela-fipe {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.fipe-valor {
+    font-weight: bold;
+    color: #c0392b;
+    font-size: 1.3em;
+}
