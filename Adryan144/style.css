@@ -1,255 +1,290 @@
-/* Reset geral */
-* {
-  box-sizing: border-box;
+body {
   margin: 0;
-  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  color: #fff;
 }
 
-html,
-body {
-  height: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #2a2a2a; /* fundo cinza escuro */
-  color: #d1d1d1; /* texto cinza claro */
-}
-
-/* Layout padrão */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Header */
 header {
-  background-color: #333333; /* cinza escuro */
+  background-color: #141416;
+  color: #c7c5ce;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid #c7c5ce;
 }
 
-header h1 {
-  color: #e1e1e1;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: #d1d1d1;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Menu lateral */
-#menu {
-  display: none;
-  border: 1px solid #888;
-  padding: 10px;
-  background-color: #2a2a2a;
-  position: absolute;
-  z-index: 1000;
-}
-
-#menu a {
-  display: block;
-  padding: 8px;
-  text-decoration: none;
-  color: #aaa;
-}
-
-#menu a:hover {
-  background-color: #444444;
-}
-
-/* Main */
-main {
-  padding: 20px;
-  flex: 1;
-}
-
-/* Seções */
-section {
-  margin: 20px 0;
-  padding: 20px;
-  background: #1f1f1f;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Formulários */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-form label {
-  margin: 10px 0 5px;
-}
-
-form input,
-form textarea {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #444;
-  background-color: #333;
-  color: #ddd;
-}
-
-/* Links e botões */
-a {
-  color: #d1d1d1;
-}
-
-a:hover {
-  color: #b0b0b0;
-}
-
-/* Dicas e Peças */
-.frase {
-  font-size: 15px;
-  transition: color 0.3s;
-}
-
-.frase:hover {
-  color: #888;
-}
-
-h2 {
-  color: #e1e1e1;
-}
-
-#pecas ul,
-#dicas ul {
-  list-style: none;
-  padding: 0;
-}
-
-#pecas ul li,
-#dicas ul li {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #1f1f1f;
-  border-radius: 5px;
-  color: #d1d1d1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#pecas ul li:hover,
-#dicas ul li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#pecas ul li a,
-#dicas ul li a {
-  color: #d1d1d1;
-  text-decoration: none;
+.logo {
+  font-size: 28px;
   font-weight: bold;
-  display: block;
+  color: #fff;
+}
+
+nav a {
+  color: #deddd8;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
-#pecas ul li a:hover,
-#dicas ul li a:hover {
-  color: #bce5d581;
+nav a:hover {
+  color: #fff;
 }
 
-/* Footer */
+/* HERO atualizado para vídeo */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  border-bottom: 4px solid #f8f7f4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a2a19f;
+  text-shadow: 2px 2px 8px #000;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.5);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Texto em cima do vídeo */
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 3;
+}
+
+/* Produtos */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  gap: 30px;
+  padding: 40px;
+  max-width: 960px;
+  margin: 0 auto; /* centraliza o grid */
+}
+
+.produto {
+  width: 300px;
+  height: 430px;
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.produto {
+  width: 300px;
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+  border-color: #f9d84a;
+  box-shadow: 0 0 15px #f9d84a55;
+}
+
+.produto img {
+  width: 100%;
+  height: auto;
+}
+
+.produto h3 {
+  margin: 15px 0 10px;
+  color: #f9d84a;
+}
+
+.produto a {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: #f9d84a;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.produto a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
 footer {
   text-align: center;
-  padding: 10px 0;
-  background: #333333;
-  color: #d1d1d1;
-  width: 100%;
-}
-
-/* Seção de Venda de PCs */
-#venda {
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#venda h2 {
-  color: #d1d1d1;
-}
-
-.pc-item {
-  display: inline-block;
-  width: 250px;
-  margin: 20px;
   padding: 15px;
-  background-color: #3c3c3c;
-  border-radius: 10px;
+  background-color: #111;
+  border-top: 2px solid #f9d84a;
+  font-size: 14px;
+}
+
+/* Seção de Jogos Online */
+.jogos-online {
+  padding: 60px 20px;
+  background-color: #121212;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pc-item img {
-  max-width: 100%;
-  border-radius: 5px;
+.jogos-online h2 {
+  color: #f9d84a;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px #000;
 }
 
-.pc-item h3 {
-  color: #e1e1e1;
-  margin-top: 10px;
+.jogos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.pc-item p {
-  color: #d1d1d1;
+.jogo-card {
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  max-width: 250px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.pc-item .preco {
-  font-size: 1.2em;
-  color: #e54b4b;
-  margin: 10px 0;
+.jogo-card:hover {
+  transform: scale(1.05);
+  border-color: #f9d84a;
+  box-shadow: 0 0 15px #f9d84a55;
 }
 
-.pc-item button {
-  background-color: #555;
-  color: #d1d1d1;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s;
-}
-
-.pc-item button:hover {
-  background-color: #777;
-}
-
-.pc-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Seção de imagem com troca dinâmica */
-#imagem {
-  width: 400px;
-  height: 300px;
-  transition: opacity 1s ease-in-out;
-  margin: auto;
-  display: block;
-}
-
-.container {
+.jogo-card img {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  height: auto;
+}
+
+.jogo-card h3 {
+  color: #f9d84a;
+  margin: 15px 0;
+}
+
+.jogo-card a {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: #f9d84a;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.jogo-card a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.info {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.info h1 {
+  font-size: 32px;
+  color: #f9d84a;
+}
+
+.info p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.zona-animal {
+  background-color: #111;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.zona-animal h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #f21;
+}
+
+.animal-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.animal-card {
+  background: #1a1a1a;
+  border: 2px solid #800000;
+  border-radius: 12px;
+  padding: 15px;
+  width: 280px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #80000033;
+}
+
+.animal-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.animal-card h3 {
+  color: #ff3;
+  margin: 10px 0 5px;
+}
+
+.animal-card p {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.animal-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #b00;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.animal-card a:hover {
+  background: #e00;
 }
