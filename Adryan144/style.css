@@ -164,3 +164,15 @@ footer {
   font-size: 18px;
   color: #ccc;
 }
+/*letras da descrição*/
+h3 {
+  font-size: 12px;
+}
+
+p {
+  font-size: 9px;
+}
+
+.preco {
+  font-size: 10px;
+}
