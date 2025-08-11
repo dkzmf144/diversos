@@ -1,27 +1,27 @@
-/* Resetando algumas configurações básicas */
+/* Resetando configurações padrão */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Definindo o estilo principal */
+/* Definindo o estilo geral */
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
+    background-color: #fff;
+    color: #333;
     margin: 0;
 }
 
 header {
-    background-color: #333;
-    padding: 10px 0;
+    background-color: #e40000;  /* Vermelho */
+    padding: 15px 0;
     text-align: center;
 }
 
 header .logo h1 {
     font-size: 2rem;
-    color: #00ff00;
+    color: #fff;
 }
 
 nav ul {
@@ -38,26 +38,40 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #00ff00;
+    color: #000;
 }
 
-/* Estilo dos imóveis */
-section.imoveis {
-    padding: 20px;
+/* Seções de categorias */
+.categoria {
+    padding: 40px;
+    text-align: center;
+}
+
+.categoria h2 {
+    font-size: 2rem;
+    color: #e40000;
+    margin-bottom: 20px;
+}
+
+.imoveis {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .imovel {
-    display: inline-block;
-    width: 30%;
-    margin: 10px;
-    background-color: #222;
-    border-radius: 5px;
-    padding: 10px;
+    background-color: #f4f4f4;
+    width: 250px;
+    padding: 20px;
+    border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .imovel:hover {
@@ -67,31 +81,23 @@ section.imoveis {
 .imovel img {
     width: 100%;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-.imovel .detalhes {
-    text-align: center;
-    padding-top: 10px;
+.imovel h3 {
+    font-size: 1.2rem;
+    color: #333;
 }
 
-button {
-    background-color: #00ff00;
-    border: none;
-    padding: 10px;
-    color: #000;
+.imovel p {
     font-size: 1rem;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #33cc33;
+    color: #e40000;
 }
 
 /* Rodapé */
 footer {
     background-color: #333;
-    color: #ccc;
+    color: #fff;
     padding: 10px;
     text-align: center;
     position: fixed;

@@ -14,27 +14,63 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="casas.html">Casas</a></li>
-                <li><a href="galpoes.html">Galpões</a></li>
-                <li><a href="lojas.html">Lojas</a></li>
-                <li><a href="comerciais.html">Comerciais</a></li>
+                <li><a href="#">Início</a></li>
+                <li><a href="#casas">Casas</a></li>
+                <li><a href="#apartamentos">Apartamentos</a></li>
+                <li><a href="#galpoes">Galpões</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Lista de Imóveis -->
-    <section class="imoveis">
-        <h2>Imóveis Disponíveis</h2>
-        <div class="imovel" onclick="location.href='casa1.html'">
-            <img src="imagens/casa1.jpg" alt="Casa Luxo">
-            <div class="detalhes">
+    <!-- Seção de Casas -->
+    <section id="casas" class="categoria">
+        <h2>Casas</h2>
+        <div class="imoveis">
+            <div class="imovel" onclick="location.href='detalhes-casa1.html'">
+                <img src="imagens/casa1.jpg" alt="Casa de Luxo">
                 <h3>Casa de Luxo</h3>
                 <p>R$ 5.000.000</p>
-                <button>Comprar</button>
+            </div>
+            <div class="imovel" onclick="location.href='detalhes-casa2.html'">
+                <img src="imagens/casa1.jpg" alt="Casa no Bairro">
+                <h3>Casa no Bairro</h3>
+                <p>R$ 2.500.000</p>
             </div>
         </div>
-        <!-- Mais imóveis podem ser adicionados aqui -->
+    </section>
+
+    <!-- Seção de Apartamentos -->
+    <section id="apartamentos" class="categoria">
+        <h2>Apartamentos</h2>
+        <div class="imoveis">
+            <div class="imovel" onclick="location.href='detalhes-apartamento1.html'">
+                <img src="imagens/apartamento1.jpg" alt="Apartamento de Alto Padrão">
+                <h3>Apartamento de Alto Padrão</h3>
+                <p>R$ 1.800.000</p>
+            </div>
+            <div class="imovel" onclick="location.href='detalhes-apartamento2.html'">
+                <img src="imagens/apartamento1.jpg" alt="Apartamento de Luxo">
+                <h3>Apartamento de Luxo</h3>
+                <p>R$ 3.000.000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Galpões -->
+    <section id="galpoes" class="categoria">
+        <h2>Galpões</h2>
+        <div class="imoveis">
+            <div class="imovel" onclick="location.href='detalhes-galpao1.html'">
+                <img src="imagens/galpao1.jpg" alt="Galpão Comercial">
+                <h3>Galpão Comercial</h3>
+                <p>R$ 1.200.000</p>
+            </div>
+            <div class="imovel" onclick="location.href='detalhes-galpao2.html'">
+                <img src="imagens/galpao1.jpg" alt="Galpão Logístico">
+                <h3>Galpão Logístico</h3>
+                <p>R$ 4.000.000</p>
+            </div>
+        </div>
     </section>
 
     <!-- Rodapé -->
