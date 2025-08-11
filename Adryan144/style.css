@@ -112,7 +112,7 @@ nav a:hover {
 
 .produto:hover {
   transform: scale(1.05);
-  border-color: #a74af9;
+  border-color: #efefef;
   box-shadow: 0 0 15px #f9d84a55;
 }
 
