@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 40px;
     background-color: #f9f9f9;
+        cursor: url("../cursor.cur"), auto;
 }
 
 .container {

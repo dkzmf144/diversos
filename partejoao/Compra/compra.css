@@ -11,6 +11,7 @@
     min-height: 100vh;
     padding: 20px 10px;
     color: #333;
+        cursor: url("../cursor.cur"), auto;
   }
   .container {
     background: white;
