@@ -160,8 +160,8 @@ header {
 
 .ads-destaque .ad.destaque {
   flex: 0 0 250px; /* largura fixa */
-  background-color: #fff8dc;
-  border: 3px solid #ffffff;
+  background-color: #f3f7d0;
+  border: 3px solid #168a76;
   box-shadow: 0 0 15px rgb(255, 255, 255);
   padding: 15px;
   border-radius: 10px;
