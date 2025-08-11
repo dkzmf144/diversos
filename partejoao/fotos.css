@@ -4,5 +4,6 @@
   padding: 5px;            
   display: inline-block;      
   max-width: 100%;            
-  box-sizing: border-box;    
+  box-sizing: border-box;   
+  cursor: url("../partejoao/cursor.cur"), auto; 
 }

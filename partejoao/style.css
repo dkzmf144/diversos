@@ -3,7 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
-    cursor: url("cursor.cur"), auto;
+    cursor: url("../partejoao/cursor.cur"), auto;
 }
 
 .anuncio {
