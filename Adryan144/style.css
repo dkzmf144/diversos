@@ -80,12 +80,13 @@ nav a:hover {
 }
 
 /* Produtos */
+
 .produtos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  grid-template-columns: repeat(4, 1fr); /* 3 colunas fixas */
   gap: 10px;
   padding: 20px;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto; /* centraliza o grid */
 }
 
@@ -176,3 +177,48 @@ p {
 .preco {
   font-size: 10px;
 }
+
+/* Submenu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  min-width: 180px;
+  z-index: 1000;
+  top: 100%; /* fica abaixo do link */
+  left: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  color: #deddd8;
+  text-decoration: none;
+  font-size: 14px;
+  border-bottom: 1px solid #333;
+  transition: background 0.3s ease;
+}
+
+.submenu a:hover {
+  background-color: #9a0fcc;
+  color: #fff;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+ /*
+
+<div class="produto">
+            <img src="C:\Users\IsaquePereiraAlcanta\Documents\GitHub\diversos\Adryan144\imagem\monitor" alt="Mesa de Pôquer" />
+            <h3></h3>
+            <p></p>
+            <a href="#">R$ 
+            </a>
+          </div>
