@@ -176,3 +176,39 @@ p {
 .preco {
   font-size: 10px;
 }
+/*teste*/
+/* Submenu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  min-width: 180px;
+  z-index: 1000;
+  top: 100%; /* fica abaixo do link */
+  left: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  color: #deddd8;
+  text-decoration: none;
+  font-size: 14px;
+  border-bottom: 1px solid #333;
+  transition: background 0.3s ease;
+}
+
+.submenu a:hover {
+  background-color: #9a0fcc;
+  color: #fff;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
