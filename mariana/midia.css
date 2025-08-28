@@ -288,3 +288,10 @@ footer {
 .animal-card a:hover {
   background: #e00;
 }
+.produto img {
+  width: 100%;        /* ocupa toda a largura do card */
+  height: 200px;      /* mesma altura para todas */
+  object-fit: cover;  /* corta proporcionalmente sem distorcer */
+  display: block;
+  margin: 0 auto;
+}
