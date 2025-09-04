@@ -295,3 +295,7 @@ footer {
   display: block;
   margin: 0 auto;
 }
+.menu a {
+  text-decoration: none;
+  color: inherit; /* mantém a cor do texto original */
+}
