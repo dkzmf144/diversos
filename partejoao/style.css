@@ -1,5 +1,6 @@
 body {
-  font-family: Arial, sans-serif; /* Corrigido para uma fonte válida */
+  font-family: Arial, sans-serif;
+
   background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
@@ -13,35 +14,34 @@ body {
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-width: 600px;
-  margin: auto; /* Corrigido o erro de digitação */
-  /* Adicionar 'text-align' ou outra propriedade faltante aqui */
-}
+  margin: auto;
 
-h1 {
-  color: #333;
-}
 
-.preco {
-  font-size: 24px;
-  color: #047f0a; /* Corrigido para uma cor válida */
-}
+  h1 {
+    color: #333;
+  }
 
-.botao {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #484e52; /* Cor do botão */
-  color: #fff; /* Cor do texto do botão */
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
-}
+  .preco {
+    font-size: 24px;
+    color: #047f0a;
+  }
 
-.botao:hover {
-  background-color: #414345; /* Cor do botão ao passar o mouse */
-}
+  .botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #484e52;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
+  .botao:hover {
+    background-color: #414345;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
