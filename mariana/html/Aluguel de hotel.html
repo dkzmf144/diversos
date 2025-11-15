@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel de Hotéis</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 36px;
+            color: #ffdf00;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #ff4d4d;
+            font-size: 30px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 50px;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: #111;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            width: 260px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+
+        .card h3 {
+            color: #ffdf00;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #ccc;
+            font-size: 14px;
+            min-height: 40px;
+        }
+
+        .price {
+            background-color: red;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 10px;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🏨 Aluguel de Hotéis</h1>
+    <p>Hospede-se com conforto, segurança e estilo nos melhores hotéis disponíveis.</p>
+
+    <!-- SEÇÃO 1 - HOTÉIS BÁSICOS -->
+    <div class="section">
+        <h2>Hotéis Básicos</h2>
+        <div class="products">
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
+                <h3>Hotel Econômico</h3>
+                <p>Ótimo custo-benefício para estadias curtas.</p>
+                <div class="price">R$ 120,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png">
+                <h3>Pousada Simples</h3>
+                <p>Ambiente acolhedor e café da manhã incluso.</p>
+                <div class="price">R$ 95,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/11448/11448563.png">
+                <h3>Quarto Individual Standard</h3>
+                <p>Ideal para viajantes solos.</p>
+                <div class="price">R$ 110,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/9726/9726882.png">
+                <h3>Hostel Compartilhado</h3>
+                <p>Perfeito para mochileiros.</p>
+                <div class="price">R$ 60,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/10028/10028314.png">
+                <h3>Hotel Express</h3>
+                <p>Conforto rápido e acessível.</p>
+                <div class="price">R$ 130,00 / noite</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SEÇÃO 2 - HOTÉIS INTERMEDIÁRIOS -->
+    <div class="section">
+        <h2>Hotéis Intermediários</h2>
+        <div class="products">
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/8204/8204591.png">
+                <h3>Hotel Executivo</h3>
+                <p>Perfeito para viagens de negócios.</p>
+                <div class="price">R$ 260,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/484/484582.png">
+                <h3>Apart-Hotel</h3>
+                <p>Conforto com mini cozinha e espaço extra.</p>
+                <div class="price">R$ 300,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/11271/11271328.png">
+                <h3>Hotel Familiar</h3>
+                <p>Instalações amplas e lazer completo.</p>
+                <div class="price">R$ 240,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/855/855963.png">
+                <h3>Resort Urbano</h3>
+                <p>Diversão e descanso sem sair da cidade.</p>
+                <div class="price">R$ 350,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995575.png">
+                <h3>Hotel Boutique</h3>
+                <p>Experiência moderna com estilo único.</p>
+                <div class="price">R$ 400,00 / noite</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SEÇÃO 3 - HOTÉIS DE LUXO -->
+    <div class="section">
+        <h2>Hotéis de Luxo</h2>
+        <div class="products">
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3163/3163478.png">
+                <h3>Hotel 5 Estrelas</h3>
+                <p>Conforto e sofisticação em cada detalhe.</p>
+                <div class="price">R$ 900,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/4689/4689978.png">
+                <h3>Suíte Presidencial</h3>
+                <p>Luxo absoluto para uma experiência única.</p>
+                <div class="price">R$ 2.500,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/845/845486.png">
+                <h3>Resort à Beira-Mar</h3>
+                <p>Piscinas, spas e vista incrível do oceano.</p>
+                <div class="price">R$ 1.200,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/8574/8574870.png">
+                <h3>Hotel Temático Luxo</h3>
+                <p>Design exclusivo e serviços premium.</p>
+                <div class="price">R$ 1.450,00 / noite</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/128/2421/2421083.png">
+                <h3>Villa Privativa</h3>
+                <p>Privacidade total com piscina exclusiva.</p>
+                <div class="price">R$ 3.800,00 / noite</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
