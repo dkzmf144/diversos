@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #0c0c0c;
+            background: #f0f0f0;
             margin: 0;
             padding: 0;
         }
@@ -96,16 +96,16 @@
             <label>CVV</label>
             <input type="text" maxlength="3" required>
 
-            <button>Pagar Agora</button>
+            <button type="submit">Pagar Agora</button>
         </form>
     </div>
 
     <script>
-        // Pega parâmetros da URL ?produto=XXX&preco=YYY
+        // Pega parâmetros da URL: ?produto=Nome&preco=199.99
         const params = new URLSearchParams(window.location.search);
 
-        document.getElementById("nomeProduto").innerText = params.get("produto");
-        document.getElementById("precoProduto").innerText = params.get("preco");
+        document.getElementById("nomeProduto").innerText = params.get("produto") || "Produto não informado";
+        document.getElementById("precoProduto").innerText = params.get("preco") || "0,00";
     </script>
 
 </body>
