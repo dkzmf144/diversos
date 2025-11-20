@@ -1,212 +1,229 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌎 Turismo & Viagens</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1, h2 {
-            text-align: center;
-            color: #ffd700;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #ccc;
-            margin-top: -10px;
-            margin-bottom: 30px;
-        }
-
-        .category-title {
-            text-align: center;
-            font-size: 28px;
-            color: #ff4444;
-            margin-top: 40px;
-        }
-
-        .products-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            padding: 20px;
-        }
-
-        .product-box {
-            background-color: #111;
-            width: 240px;
-            padding: 15px;
-            border: 2px solid #ff0000;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .product-box img {
-            width: 210px;
-            height: 140px;
-            border-radius: 8px;
-            object-fit: cover;
-            background-color: #333;
-        }
-
-        .product-name {
-            color: #fff;
-            font-size: 18px;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .product-desc {
-            color: #bbb;
-            font-size: 14px;
-            margin: 8px 0;
-        }
-
-        .preco {
-            background-color: red;
-            color: #fff;
-            font-size: 18px;
-            padding: 8px;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-weight: bold;
-            display: block;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>🛠️ Serviços Profissionais</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: gold;
+      font-size: 42px;
+    }
+    h2 {
+      color: red;
+      margin-top: 40px;
+      font-size: 32px;
+    }
+    .categoria {
+      margin-top: 20px;
+    }
+    .produto {
+      display: inline-block;
+      width: 260px;
+      border: 2px solid red;
+      padding: 15px;
+      margin: 15px;
+      border-radius: 12px;
+      background-color: #111;
+    }
+    .produto img {
+      width: 80px;
+    }
+    .produto h3 {
+      color: yellow;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .preco {
+      background-color: red;
+      color: white;
+      padding: 10px 0;
+      margin-top: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      display: block;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .parcelado {
+      margin-top: 5px;
+      color: #ccc;
+      font-size: 14px;
+    }
+    .bandeiras img {
+      width: 28px;
+      margin: 3px;
+    }
+  </style>
 </head>
-
 <body>
 
-    <h1>🌎 Turismo & Viagens</h1>
-    <p class="subtitle">Os melhores pacotes, acessórios e experiências para a sua próxima aventura.</p>
+  <h1>🛠️ Serviços Profissionais</h1>
+  <p>Soluções completas oferecidas por especialistas qualificados em diversas áreas.</p>
 
-    <!-- CATEGORIA 1 – PACOTES DE VIAGEM -->
-    <h2 class="category-title">Pacotes de Viagem</h2>
+  <!-- Categoria 1 -->
+  <h2>💼 Consultoria Profissional</h2>
+  <div class="categoria">
 
-    <div class="products-container">
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1505731132164-cca7fefc2d5e">
-            <p class="product-name">Pacote Cancún 7 Dias</p>
-            <p class="product-desc">Hotel + Passeios + Café da manhã.</p>
-            <a href="Pagamento.html" class="preco">R$ 4.299,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1533050487297-09b450131914">
-            <p class="product-name">Pacote Paris 5 Dias</p>
-            <p class="product-desc">A cidade do amor te espera.</p>
-            <a href="Pagamento.html" class="preco">R$ 6.499,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
-            <p class="product-name">Pacote Nordeste</p>
-            <p class="product-desc">Sol, praia e descanso garantido.</p>
-            <a href="Pagamento.html" class="preco">R$ 2.199,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
-            <p class="product-name">Pacote Gramado 4 Dias</p>
-            <p class="product-desc">Romântico, friozinho e atrações incríveis.</p>
-            <a href="Pagamento.html" class="preco">R$ 1.799,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1549640376-195a2c7d1c1c">
-            <p class="product-name">Pacote Orlando 7 Dias</p>
-            <p class="product-desc">Parques, compras e muita diversão.</p>
-            <a href="Pagamento.html" class="preco">R$ 7.299,00</a>
-        </div>
-
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+        <img src="https://flagcdn.com/w40/us.png">
+        <img src="https://flagcdn.com/w40/pt.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+      <h3>Consultoria Administrativa</h3>
+      <p>Organização e otimização empresarial.</p>
+      <a href="Pagamento.html" class="preco">R$ 249,00</a>
+      <div class="parcelado">ou 12x de R$ 24,90</div>
     </div>
 
-    <!-- CATEGORIA 2 – ACESSÓRIOS & EQUIPAMENTOS -->
-    <h2 class="category-title">Acessórios & Equipamentos</h2>
-
-    <div class="products-container">
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1522920192404-b4f1633f0c19">
-            <p class="product-name">Mala de Viagem Grande</p>
-            <p class="product-desc">Resistente e leve.</p>
-            <a href="Pagamento.html" class="preco">R$ 349,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1583031801406-3786d9c6c9b9">
-            <p class="product-name">Kit Organizadores</p>
-            <p class="product-desc">Mantenha tudo arrumado.</p>
-            <a href="Pagamento.html" class="preco">R$ 89,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc7d1">
-            <p class="product-name">Travesseiro de Pescoço</p>
-            <p class="product-desc">Conforto em qualquer transporte.</p>
-            <a href="Pagamento.html" class="preco">R$ 49,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1509475826633-fed577a2c71b">
-            <p class="product-name">Mochila de Viagem</p>
-            <p class="product-desc">Leve, prática e resistente.</p>
-            <a href="Pagamento.html" class="preco">R$ 179,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c">
-            <p class="product-name">Power Bank 20.000mAh</p>
-            <p class="product-desc">Nunca fique sem bateria na viagem.</p>
-            <a href="Pagamento.html" class="preco">R$ 129,00</a>
-        </div>
-
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+        <img src="https://flagcdn.com/w40/us.png">
+        <img src="https://flagcdn.com/w40/pt.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995503.png">
+      <h3>Consultoria Jurídica</h3>
+      <p>Orientação com advogado especialista.</p>
+      <a href="Pagamento.html" class="preco">R$ 349,00</a>
+      <div class="parcelado">ou 12x de R$ 34,90</div>
     </div>
 
-    <!-- NOVA SEÇÃO — Experiências Turísticas -->
-    <h2 class="category-title">Experiências & Passeios Turísticos</h2>
-
-    <div class="products-container">
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1503264116251-35a269479413">
-            <p class="product-name">Passeio de Escuna</p>
-            <p class="product-desc">Tour completo por ilhas paradisíacas.</p>
-            <a href="Pagamento.html" class="preco">R$ 159,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef">
-            <p class="product-name">City Tour Histórico</p>
-            <p class="product-desc">Conheça pontos turísticos clássicos.</p>
-            <a href="Pagamento.html" class="preco">R$ 119,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe">
-            <p class="product-name">Trilha Guiada</p>
-            <p class="product-desc">Natureza, aventura e fotos incríveis.</p>
-            <a href="Pagamento.html" class="preco">R$ 89,00</a>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-            <p class="product-name">Passeio de Quadriciclo</p>
-            <p class="product-desc">Adrenalina e paisagens únicas.</p>
-            <a href="Pagamento.html" class="preco">R$ 249,00</a>
-        </div>
-
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+        <img src="https://flagcdn.com/w40/us.png">
+        <img src="https://flagcdn.com/w40/pt.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/907/907717.png">
+      <h3>Consultoria Contábil</h3>
+      <p>Auxílio completo para finanças e impostos.</p>
+      <a href="Pagamento.html" class="preco">R$ 199,00</a>
+      <div class="parcelado">ou 12x de R$ 19,90</div>
     </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+        <img src="https://flagcdn.com/w40/us.png">
+        <img src="https://flagcdn.com/w40/pt.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2268/2268963.png">
+      <h3>Consultoria de Tecnologia</h3>
+      <p>Suporte e análise de sistemas.</p>
+      <a href="Pagamento.html" class="preco">R$ 299,00</a>
+      <div class="parcelado">ou 12x de R$ 29,90</div>
+    </div>
+
+  </div>
+
+  <!-- Categoria 2 -->
+  <h2>⚒️ Serviços Técnicos</h2>
+  <div class="categoria">
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png">
+      <h3>Eletricista</h3>
+      <p>Instalações, reparos e inspeções.</p>
+      <a href="Pagamento.html" class="preco">R$ 120,00</a>
+      <div class="parcelado">ou 12x de R$ 11,90</div>
+    </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965879.png">
+      <h3>Encanador</h3>
+      <p>Conserto de vazamentos e manutenção.</p>
+      <a href="Pagamento.html" class="preco">R$ 140,00</a>
+      <div class="parcelado">ou 12x de R$ 13,90</div>
+    </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2427/2427636.png">
+      <h3>Técnico em Informática</h3>
+      <p>Formatação e reparo de computadores.</p>
+      <a href="Pagamento.html" class="preco">R$ 99,00</a>
+      <div class="parcelado">ou 12x de R$ 9,90</div>
+    </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2933/2933832.png">
+      <h3>Instalador de Internet</h3>
+      <p>Configuração de roteadores e redes.</p>
+      <a href="Pagamento.html" class="preco">R$ 89,00</a>
+      <div class="parcelado">ou 12x de R$ 8,90</div>
+    </div>
+
+  </div>
+
+  <!-- Categoria 3 -->
+  <h2>🧹 Serviços Gerais</h2>
+  <div class="categoria">
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png">
+      <h3>Faxineira</h3>
+      <p>Limpeza residencial ou comercial.</p>
+      <a href="Pagamento.html" class="preco">R$ 120,00</a>
+      <div class="parcelado">ou 12x de R$ 11,90</div>
+    </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/765/765205.png">
+      <h3>Jardineiro</h3>
+      <p>Manutenção completa de jardins.</p>
+      <a href="Pagamento.html" class="preco">R$ 150,00</a>
+      <div class="parcelado">ou 12x de R$ 14,90</div>
+    </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/3176/3176373.png">
+      <h3>Montador de Móveis</h3>
+      <p>Montagem rápida e segura.</p>
+      <a href="Pagamento.html" class="preco">R$ 89,00</a>
+      <div class="parcelado">ou 12x de R$ 8,90</div>
+    </div>
+
+    <div class="produto">
+      <div class="bandeiras">
+        <img src="https://flagcdn.com/w40/br.png">
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2331/2331948.png">
+      <h3>Pintor</h3>
+      <p>Pintura interna e externa.</p>
+      <a href="Pagamento.html" class="preco">R$ 199,00</a>
+      <div class="parcelado">ou 12x de R$ 19,90</div>
+    </div>
+
+  </div>
 
 </body>
 </html>
