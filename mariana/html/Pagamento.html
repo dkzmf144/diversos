@@ -2,127 +2,174 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>💳 Pagamento</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento</title>
   <style>
     body {
-      background-color: #000;
-      color: #fff;
       font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
       margin: 0;
       padding: 0;
-      text-align: center;
     }
 
     .container {
       max-width: 450px;
-      margin: 50px auto;
-      background: #0d0d0d;
+      margin: 40px auto;
+      background: #1a1a1a;
       padding: 30px;
-      border-radius: 15px;
-      border: 2px solid red;
-      box-shadow: 0 0 20px rgba(255,0,0,0.3);
+      border-radius: 14px;
+      box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.2);
     }
 
     h1 {
+      text-align: center;
       color: gold;
-      font-size: 34px;
       margin-bottom: 10px;
     }
 
-    p {
+    .subtitle {
+      text-align: center;
       color: #ccc;
-      margin-bottom: 25px;
-      font-size: 16px;
-    }
-
-    .input-box {
-      text-align: left;
-      margin-bottom: 15px;
-    }
-
-    .input-box label {
       font-size: 14px;
-      color: gold;
+      margin-bottom: 30px;
     }
 
-    .input-box input {
+    .payment-option {
+      background: #262626;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .payment-option:hover {
+      border-color: gold;
+      background: #303030;
+    }
+
+    .payment-option h2 {
+      margin: 0;
+      color: gold;
+      font-size: 20px;
+    }
+
+    .qr-area {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .qr-area img {
+      width: 220px;
+      height: 220px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .boleto-area,
+    .cartao-area {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input, button {
       width: 100%;
       padding: 12px;
-      margin-top: 5px;
-      background: #1b1b1b;
-      border: 2px solid red;
+      margin: 8px 0;
+      border: none;
       border-radius: 8px;
-      color: white;
       font-size: 16px;
     }
 
-    .btn {
-      width: 100%;
-      padding: 15px;
-      background: red;
-      border: none;
-      border-radius: 10px;
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
+    input {
+      background: #333;
       color: white;
+    }
+
+    button {
+      background: gold;
+      color: black;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.2s;
     }
 
-    .btn:hover {
-      background: darkred;
-      transform: scale(1.03);
-    }
-
-    .footer {
-      margin-top: 20px;
-    }
-
-    .footer a {
-      color: #00aaff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
+    button:hover {
+      opacity: 0.85;
     }
   </style>
 
+  <script>
+    function mostrarPIX() {
+      document.querySelector('.qr-area').style.display = 'block';
+      document.querySelector('.boleto-area').style.display = 'none';
+      document.querySelector('.cartao-area').style.display = 'none';
+    }
+
+    function mostrarBoleto() {
+      document.querySelector('.boleto-area').style.display = 'block';
+      document.querySelector('.qr-area').style.display = 'none';
+      document.querySelector('.cartao-area').style.display = 'none';
+    }
+
+    function mostrarCartao() {
+      document.querySelector('.cartao-area').style.display = 'block';
+      document.querySelector('.boleto-area').style.display = 'none';
+      document.querySelector('.qr-area').style.display = 'none';
+    }
+  </script>
 </head>
+
 <body>
 
   <div class="container">
-    <h1>💳 Pagamento</h1>
-    <p>Finalize sua compra com segurança</p>
+    <h1>Pagamento</h1>
+    <p class="subtitle">Escolha uma forma de pagamento</p>
 
-    <div class="input-box">
-      <label>Nome Completo</label>
-      <input type="text" placeholder="Seu nome">
+    <div class="payment-option" onclick="mostrarPIX()">
+      <h2>💸 PIX</h2>
+      <p>Pague e libere na hora</p>
     </div>
 
-    <div class="input-box">
-      <label>Número do Cartão</label>
-      <input type="text" maxlength="16" placeholder="•••• •••• •••• ••••">
+    <div class="payment-option" onclick="mostrarBoleto()">
+      <h2>📄 Boleto Bancário</h2>
+      <p>Compensação em até 1 dia útil</p>
     </div>
 
-    <div class="input-box">
-      <label>Validade (MM/AA)</label>
-      <input type="text" maxlength="5" placeholder="MM/AA">
+    <div class="payment-option" onclick="mostrarCartao()">
+      <h2>💳 Cartão de Crédito</h2>
+      <p>Aceita Visa, Master e outros</p>
     </div>
 
-    <div class="input-box">
-      <label>CVV</label>
-      <input type="text" maxlength="3" placeholder="123">
+    <!-- QR CODE PIX -->
+    <div class="qr-area">
+      <h3>Escaneie o QR Code</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=PagamentoPIX" alt="QR Code PIX">
+      <p>Clique para copiar chave PIX:</p>
+      <input type="text" value="chave-pix-exemplo@seusite.com" readonly>
+      <button onclick="navigator.clipboard.writeText('chave-pix-exemplo@seusite.com')">Copiar Chave PIX</button>
     </div>
 
-    <button class="btn">Pagar Agora</button>
-
-    <div class="footer">
-      <a href="index.html">← Voltar</a>
+    <!-- BOLETO -->
+    <div class="boleto-area">
+      <h3>Boleto gerado:</h3>
+      <input type="text" value="34191.79001 01043.510047 91020.150008 8 97230026000" readonly>
+      <button>Copiar Código de Boleto</button>
     </div>
+
+    <!-- CARTÃO -->
+    <div class="cartao-area">
+      <h3>Dados do Cartão</h3>
+      <input type="text" placeholder="Número do cartão">
+      <input type="text" placeholder="Nome impresso">
+      <input type="text" placeholder="Validade (MM/AA)">
+      <input type="text" placeholder="CVV">
+      <button>Finalizar Pagamento</button>
+    </div>
+
   </div>
 
 </body>
