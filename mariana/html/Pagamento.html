@@ -1,154 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagamento</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-        }
-        .container {
-            max-width: 450px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-            font-size: 26px;
-        }
-        .method {
-            background: #f0f0f0;
-            padding: 14px;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: 0.25s;
-        }
-        .method:hover {
-            border-color: #0078ff;
-        }
-        .selected {
-            border-color: #0078ff;
-            background: #eaf3ff;
-        }
-        #areaPagamento {
-            margin-top: 20px;
-            display: none;
-        }
-        input, button {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            margin-top: 10px;
-        }
-        button {
-            background: #0078ff;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #005fcc;
-        }
-        #qrBox {
-            text-align: center;
-            margin-top: 20px;
-        }
-        #qrBox img {
-            width: 220px;
-            height: 220px;
-        }
-        #confirmacao {
-            display: none;
-            text-align: center;
-            font-size: 22px;
-            padding: 20px;
-            animation: fadeIn 0.8s ease;
-            color: #0a8f36;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 450px;
+      margin: 40px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .payment-option {
+      background: #262626;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .payment-option:hover {
+      border-color: gold;
+      background: #303030;
+    }
+
+    .payment-option h2 {
+      margin: 0;
+      color: gold;
+      font-size: 20px;
+    }
+
+    .qr-area {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .qr-area img {
+      width: 220px;
+      height: 220px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .boleto-area,
+    .cartao-area {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input {
+      background: #333;
+      color: white;
+    }
+
+    button {
+      background: gold;
+      color: black;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+  </style>
+
+  <script>
+    function mostrarPIX() {
+      document.querySelector('.qr-area').style.display = 'block';
+      document.querySelector('.boleto-area').style.display = 'none';
+      document.querySelector('.cartao-area').style.display = 'none';
+    }
+
+    function mostrarBoleto() {
+      document.querySelector('.boleto-area').style.display = 'block';
+      document.querySelector('.qr-area').style.display = 'none';
+      document.querySelector('.cartao-area').style.display = 'none';
+    }
+
+    function mostrarCartao() {
+      document.querySelector('.cartao-area').style.display = 'block';
+      document.querySelector('.boleto-area').style.display = 'none';
+      document.querySelector('.qr-area').style.display = 'none';
+    }
+  </script>
 </head>
+
 <body>
 
-<div class="container">
-    <h2>Escolha a forma de pagamento</h2>
+  <div class="container">
+    <h1>Pagamento</h1>
+    <p class="subtitle">Escolha uma forma de pagamento</p>
 
-    <div class="method" onclick="selectMethod('pix')">💸 PIX</div>
-    <div class="method" onclick="selectMethod('qr')">🔳 QR Code</div>
-    <div class="method" onclick="selectMethod('boleto')">📄 Boleto Bancário</div>
-    <div class="method" onclick="selectMethod('cartao')">💳 Cartão de Crédito</div>
+    <div class="payment-option" onclick="mostrarPIX()">
+      <h2>💸 PIX</h2>
+      <p>Pague e libere na hora</p>
+    </div>
 
-    <div id="areaPagamento"></div>
+    <div class="payment-option" onclick="mostrarBoleto()">
+      <h2>📄 Boleto Bancário</h2>
+      <p>Compensação em até 1 dia útil</p>
+    </div>
 
-    <div id="confirmacao">✔ Pagamento confirmado com sucesso!</div>
-</div>
+    <div class="payment-option" onclick="mostrarCartao()">
+      <h2>💳 Cartão de Crédito</h2>
+      <p>Aceita Visa, Master e outros</p>
+    </div>
 
-<script>
-function selectMethod(tipo) {
-    document.querySelectorAll('.method').forEach(m => m.classList.remove('selected'));
-    event.target.classList.add('selected');
+    <!-- QR CODE PIX -->
+    <div class="qr-area">
+      <h3>Escaneie o QR Code</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=PagamentoPIX" alt="QR Code PIX">
+      <p>Clique para copiar chave PIX:</p>
+      <input type="text" value="chave-pix-exemplo@seusite.com" readonly>
+      <button onclick="navigator.clipboard.writeText('chave-pix-exemplo@seusite.com')">Copiar Chave PIX</button>
+    </div>
 
-    const box = document.getElementById('areaPagamento');
-    box.style.display = 'block';
+    <!-- BOLETO -->
+    <div class="boleto-area">
+      <h3>Boleto gerado:</h3>
+      <input type="text" value="34191.79001 01043.510047 91020.150008 8 97230026000" readonly>
+      <button>Copiar Código de Boleto</button>
+    </div>
 
-    if (tipo === 'pix') {
-        box.innerHTML = `
-            <h3>Pagamento via PIX</h3>
-            <input type="text" value="chavepix-exemplo@site.com" readonly />
-            <button onclick="confirmar()">Confirmar Pagamento</button>
-        `;
-    }
-    if (tipo === 'qr') {
-        box.innerHTML = `
-            <h3>Escaneie o QR Code</h3>
-            <div id="qrBox">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=PAGAMENTO" />
-            </div>
-            <button onclick="confirmar()">Já Paguei</button>
-        `;
-    }
-    if (tipo === 'boleto') {
-        box.innerHTML = `
-            <h3>Boleto Bancário</h3>
-            <input type="text" value="34191.79001 01043.510047 91020.150008 5 12340000010000" readonly />
-            <button onclick="confirmar()">Confirmar Pagamento</button>
-        `;
-    }
-    if (tipo === 'cartao') {
-        box.innerHTML = `
-            <h3>Cartão de Crédito</h3>
-            <input type="text" placeholder="Número do cartão" maxlength="16" />
-            <input type="month" />
-            <input type="text" placeholder="CVV" maxlength="3" />
-            <select style="width:100%;padding:12px;border-radius:8px;margin-top:10px;">
-                <option>1x de R$ 100,00</option>
-                <option>2x de R$ 50,00</option>
-                <option>3x de R$ 35,00</option>
-            </select>
-            <button onclick="confirmar()">Pagar</button>
-        `;
-    }
-}
+    <!-- CARTÃO -->
+    <div class="cartao-area">
+      <h3>Dados do Cartão</h3>
+      <input type="text" placeholder="Número do cartão">
+      <input type="text" placeholder="Nome impresso">
+      <input type="text" placeholder="Validade (MM/AA)">
+      <input type="text" placeholder="CVV">
+      <button>Finalizar Pagamento</button>
+    </div>
 
-function confirmar() {
-    document.getElementById('confirmacao').style.display = 'block';
-    setTimeout(() => alert('Pagamento aprovado!'), 800);
-}
-</script>
+  </div>
 
 </body>
 </html>
