@@ -28,15 +28,6 @@
             color: #333;
         }
 
-        .produto {
-            background: #f8f8f8;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: #222;
-        }
-
         label {
             font-weight: bold;
             display: block;
@@ -75,11 +66,6 @@
     <div class="container">
         <h2>Pagamento</h2>
 
-        <div class="produto">
-            <p><strong>Produto:</strong> <span id="nomeProduto"></span></p>
-            <p><strong>Preço:</strong> R$ <span id="precoProduto"></span></p>
-        </div>
-
         <form>
             <label>Nome completo</label>
             <input type="text" required>
@@ -99,14 +85,6 @@
             <button type="submit">Pagar Agora</button>
         </form>
     </div>
-
-    <script>
-        // Pega parâmetros da URL: ?produto=Nome&preco=199.99
-        const params = new URLSearchParams(window.location.search);
-
-        document.getElementById("nomeProduto").innerText = params.get("produto") || "Produto não informado";
-        document.getElementById("precoProduto").innerText = params.get("preco") || "0,00";
-    </script>
 
 </body>
 </html>
