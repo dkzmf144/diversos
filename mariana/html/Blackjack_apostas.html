@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Casino Py — Blackjack</title>
+  <style>
+    :root{
+      --bg:#0b0f13;--card:#fff;--accent:#e5b21b;--soft:#1b1f25;--danger:#d64141;--glass: rgba(255,255,255,0.06);
+      --green:#18a058;--muted:#bfc7cf;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071018 0%, #071018 60%, #041018 100%);color:var(--muted);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .casino{width:980px;max-width:96vw;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;box-shadow:0 8px 40px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+    .header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#111 0,#091018 100%);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04)}
+    .logo h1{margin:0;font-size:18px;color:var(--accent)}
+    h2{margin:0;color:#fff}
+    .top-row{display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .controls{display:flex;gap:8px;align-items:center}
+    .bank{background:var(--glass);padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);min-width:160px;text-align:center}
+    .bet-input{display:flex;gap:8px;align-items:center}
+    input[type=number]{width:100px;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)}
+    button{background:var(--accent);border:none;padding:10px 12px;border-radius:8px;color:#081217;font-weight:700;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+
+    .table{margin-top:16px;background:linear-gradient(180deg,#062225 0%, #04121a 100%);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .hands{display:flex;gap:18px;align-items:flex-start;justify-content:space-between}
+    .hand{flex:1;background:transparent;padding:12px;border-radius:8px}
+    .hand .title{color:var(--muted);margin-bottom:8px}
+
+    .cards{display:flex;gap:8px}
+    .card{width:72px;height:98px;border-radius:8px;background:linear-gradient(180deg,#fff,#f3f3f3);display:flex;flex-direction:column;justify-content:space-between;padding:8px;font-weight:700;color:#111;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(0,0,0,0.08);position:relative}
+    .card.red{color:#b71c1c}
+    .card.back{background:linear-gradient(180deg,#10161a,#081014);color:transparent;display:flex;align-items:center;justify-content:center}
+    .value{font-size:18px}
+    .suit{font-size:20px}
+    .score{margin-top:10px;font-weight:800;color:#fff}
+
+    .actions{display:flex;gap:8px;margin-top:16px}
+    .message{margin-top:12px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+
+    .chips{display:flex;gap:8px;align-items:center}
+    .chip{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;border:2px solid rgba(0,0,0,0.2);background:linear-gradient(180deg,#fff,#e8e8e8);color:#111}
+
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:720px){.hands{flex-direction:column}.cards{flex-wrap:wrap}.card{width:56px;height:80px}}
+  </style>
+</head>
+<body>
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" style="position:fixed;inset:0;background:#000c;display:flex;align-items:center;justify-content:center;z-index:9999;">
+    <div style="background:#111;padding:32px;border-radius:12px;text-align:center;width:320px;border:1px solid #333;">
+      <h2 style="color:white;margin-bottom:16px;">Login</h2>
+      <input id="usernameInput" placeholder="Usuário" style="width:100%;padding:10px;border-radius:6px;border:1px solid #444;background:#222;color:white;">
+      <input id="chipsInput" type="number" placeholder="Fichas iniciais" style="width:100%;padding:10px;border-radius:6px;border:1px solid #444;background:#222;color:white;margin-top:10px;">
+      <button id="loginBtn" style="margin-top:16px;width:100%;padding:10px;border-radius:8px;background:var(--accent);color:black;font-weight:700;cursor:pointer;">Entrar</button>
+    </div>
+  </div>
+  <div class="casino">
+    <div class="top-row">
+      <div class="header">
+        <div class="logo"><h1>CASINO</h1></div>
+        <div>
+          <h2>Blackjack — Mesa de Cassino</h2>
+          <div style="font-size:12px;color:var(--muted)">Regras: Blackjack paga 3:2 · Dealer fica em 17 · Double Down suportado</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="bank">Fichas: <div id="bank" style="font-weight:900;font-size:18px;color:var(--accent)">100</div></div>
+        <div class="bet-input">
+          <input id="bet" type="number" min="1" value="10">
+          <button id="placeBet">Apostar</button>
+          <button id="reset" class="secondary">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table">
+      <div class="hands">
+        <div class="hand" id="dealerArea">
+          <div class="title">Dealer</div>
+          <div class="cards" id="dealerCards"></div>
+          <div class="score" id="dealerScore"></div>
+        </div>
+
+        <div class="hand" id="playerArea">
+          <div class="title">Você</div>
+          <div class="cards" id="playerCards"></div>
+          <div class="score" id="playerScore"></div>
+
+          <div class="actions" id="actionButtons" style="display:none">
+            <button id="hit">Hit</button>
+            <button id="stand" class="secondary">Stand</button>
+            <button id="double" class="secondary">Double</button>
+          </div>
+
+          <div class="message" id="message" style="display:none"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <div class="chips">
+          <div class="chip">1</div>
+          <div class="chip">5</div>
+          <div class="chip">25</div>
+          <div class="chip">100</div>
+        </div>
+        <div style="font-size:12px;color:var(--muted)">Dica: clique em uma ficha para preencher a aposta rápida</div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div>Feito para terminal → web. <strong style="color:var(--accent)">Divirta-se!</strong></div>
+      <div style="font-size:12px">By ChatGPT — Blackjack em HTML/JS</div>
+    </footer>
+  </div>
+
+<script>
+// Blackjack simples em JavaScript — Português
+const SUITS=['♠','♥','♦','♣'];
+const RANKS=['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+const VALUES={'J':10,'Q':10,'K':10,'A':11};
+RANKS.forEach(r=>{if(!isNaN(r)) VALUES[r]=parseInt(r)});
+
+let deck=[];
+let bank=100;
+let currentBet=0;
+let playerHand=[];
+let dealerHand=[];
+let inRound=false;
+let canDouble=true;
+
+const q=id=>document.getElementById(id);
+const dealerCards=q('dealerCards');
+const playerCards=q('playerCards');
+const bankEl=q('bank');
+const betInput=q('bet');
+const placeBet=q('placeBet');
+const actionButtons=q('actionButtons');
+const hitBtn=q('hit');
+const standBtn=q('stand');
+const doubleBtn=q('double');
+const message=q('message');
+const dealerScore=q('dealerScore');
+const playerScore=q('playerScore');
+const resetBtn=q('reset');
+
+function buildDeck(decks=6){deck=[];for(let d=0;d<decks;d++){for(let s of SUITS){for(let r of RANKS){deck.push({r,s});}}}shuffle(deck)}
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}}
+function draw(){if(deck.length<15) buildDeck(6);return deck.pop()}
+function cardHTML(card, faceUp=true){if(!faceUp) return `<div class="card back">🂠</div>`; const red = (card.s==='♥' || card.s==='♦') ? ' red':''; return `<div class="card${red}"><div class="value">${card.r}</div><div class="suit">${card.s}</div></div>`}
+
+function handValue(hand){let value=0, aces=0; for(let c of hand){value += (VALUES[c.r] || 0); if(c.r==='A') aces++;} while(value>21 && aces){value-=10; aces--;} const isBJ = (hand.length===2 && value===21); return {value,isBJ}; }
+
+function render(){dealerCards.innerHTML = dealerHand.map((c,i)=> cardHTML(c, !(i===0 && inRound))).join(' ');
+playerCards.innerHTML = playerHand.map(c=>cardHTML(c,true)).join(' ');
+const p=handValue(playerHand); playerScore.textContent = `Total: ${p.value}${p.isBJ ? ' — BLACKJACK!' : ''}`;
+if(!inRound){ const d=handValue(dealerHand); dealerScore.textContent = `Total: ${d.value}${d.isBJ ? ' — BLACKJACK!' : ''}` } else {
+ dealerScore.textContent = `Carta virada` }
+bankEl.textContent = bank;
+}
+
+function showMessage(txt, important=false){message.style.display='block'; message.style.borderColor = important? 'var(--accent)':'rgba(255,255,255,0.02)'; message.innerHTML = txt}
+function hideMessage(){message.style.display='none'}
+
+placeBet.addEventListener('click', ()=>{
+ if(inRound) return;
+ const val = parseInt(betInput.value)||0;
+ if(val<1 || val>bank){showMessage(`Aposta inválida. Escolha entre 1 e ${bank}`, true);return}
+ currentBet = val; bank -= currentBet; inRound=true; canDouble = bank>=currentBet; startRound();
+})
+
+resetBtn.addEventListener('click', ()=>{if(confirm('Reiniciar o jogo?')){bank=100; currentBet=0; inRound=false; playerHand=[]; dealerHand=[]; buildDeck(6); hideMessage(); render();}})
+
+hitBtn.addEventListener('click', ()=>{if(!inRound) return; playerHand.push(draw()); render(); const p = handValue(playerHand); if(p.value>21){endRound();}})
+
+standBtn.addEventListener('click', ()=>{if(!inRound) return; dealerPlays();})
+
+doubleBtn.addEventListener('click', ()=>{if(!inRound) return; if(!canDouble){showMessage('Não pode dobrar: fichas insuficientes',true);return} bank -= currentBet; currentBet *=2; playerHand.push(draw()); render(); const p = handValue(playerHand); if(p.value>21){endRound();} else {dealerPlays();}})
+
+function startRound(){hideMessage(); playerHand=[draw(),draw()]; dealerHand=[draw(),draw()]; render(); actionButtons.style.display='flex'; // habilita ações
+ // checar blackjack
+ const p = handValue(playerHand); const d = handValue(dealerHand);
+ if(p.isBJ || d.isBJ){// revelar e resolver
+ inRound=false; render(); const res = payout(); applyPayout(res); }
+}
+
+function dealerPlays(){actionButtons.style.display='none'; // reveal
+ // dealer compra até >=17
+ while(true){ const d = handValue(dealerHand); if(d.value<17){dealerHand.push(draw()); render(); } else break }
+ endRound();}
+
+function endRound(){inRound=false; render(); const res = payout(); applyPayout(res);}
+
+function payout(){const p = handValue(playerHand); const d = handValue(dealerHand);
+ if(p.isBJ && !d.isBJ){return {out:'BLACKJACK',amt: Math.floor(currentBet * 1.5)} }
+ if(p.isBJ && d.isBJ){return {out:'PUSH',amt:0} }
+ if(p.value>21){return {out:'LOSE',amt:-currentBet} }
+ if(d.value>21){return {out:'WIN',amt:currentBet} }
+ if(p.value> d.value){return {out:'WIN',amt:currentBet} }
+ if(p.value< d.value){return {out:'LOSE',amt:-currentBet} }
+ return {out:'PUSH',amt:0}
+}
+
+function applyPayout(res){let text=''; if(res.out==='BLACKJACK'){bank += currentBet + res.amt; text = `Blackjack! Você ganha ${res.amt} fichas (3:2).`}
+ else if(res.out==='WIN'){bank += currentBet + res.amt; text = `Você venceu e ganhou ${res.amt} fichas.`}
+ else if(res.out==='LOSE'){ /* amt é negativo */ text = `Você perdeu ${-res.amt} fichas.` }
+ else { bank += currentBet; text = `Empate (push). Sua aposta foi devolvida.` }
+ // reset aposta
+ currentBet=0; render(); showMessage(text);
+}
+
+// ficha rápida
+document.querySelectorAll('.chip').forEach(c=>{c.addEventListener('click', ()=>{betInput.value = parseInt(c.textContent);})})
+
+// LOGIN LOGIC
+const loginScreen = document.getElementById('loginScreen');
+const loginBtn = document.getElementById('loginBtn');
+const usernameInput = document.getElementById('usernameInput');
+const chipsInput = document.getElementById('chipsInput');
+
+loginBtn.addEventListener('click', ()=>{
+  const user = usernameInput.value.trim();
+  let chips = parseInt(chipsInput.value);
+  if(!user){alert('Digite um nome de usuário.');return;}
+  if(isNaN(chips) || chips<=0){chips = 100;}
+  bank = chips;
+  loginScreen.style.display='none';
+  render();
+});
+
+// inicialização
+buildDeck(6); render();
+
+</script>
+
+<script>
+// --- USER SYSTEM WITH LOCALSTORAGE ---
+let currentUser = null;
+let users = JSON.parse(localStorage.getItem('blackjackUsers') || '{}');
+
+function saveUsers(){
+  localStorage.setItem('blackjackUsers', JSON.stringify(users));
+}
+
+// LOGIN UI ENHANCED
+loginBtn.textContent = "Entrar / Registrar";
+
+loginBtn.onclick = ()=>{
+  const user = usernameInput.value.trim();
+  let chips = parseInt(chipsInput.value);
+
+  if(!user){ alert('Digite um nome de usuário.'); return; }
+  if(isNaN(chips) || chips <= 0){ chips = 100; }
+
+  if(!users[user]){
+    users[user] = { chips, history: [] };
+    saveUsers();
+    alert("Usuário criado!");
+  }
+
+  currentUser = user;
+  bank = users[user].chips;
+  loginScreen.style.display = "none";
+  render();
+};
+
+// SAVE PROGRESS
+function saveProgress(result, bet){
+  if(!currentUser) return;
+  users[currentUser].chips = bank;
+  users[currentUser].history.push({ date: new Date().toLocaleString(), result, bet });
+  saveUsers();
+}
+
+// WRAP ORIGINAL WIN/LOSE HANDLING
+const originalWin = win;
+win = function(){ originalWin(); saveProgress("win", 100); };
+const originalLose = lose;
+lose = function(){ originalLose(); saveProgress("lose", 100); };
+const originalPush = push;
+push = function(){ originalPush(); saveProgress("push", 100); };
+
+</script>
+</body>
+</html>
