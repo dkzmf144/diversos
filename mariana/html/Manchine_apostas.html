@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Manchine — Cassino Virtual</title>
+<style>
+  :root{--bg:#071018;--card:#fff;--accent:#f5b020;--muted:#bfc7cf;--glass:rgba(255,255,255,0.03);--green:#18a058}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071018,#041018);color:var(--muted);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+  .app{width:980px;max-width:96vw;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+  header{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo h1{margin:0;color:var(--accent)}
+  .wallet{background:var(--glass);padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+
+  .main{display:flex;gap:18px;margin-top:18px}
+  .machine{flex:1;background:linear-gradient(180deg,#071b1a,#041016);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+  .controls{width:320px;background:linear-gradient(180deg,#081018,#041018);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+
+  .reels{display:flex;gap:12px;justify-content:center;padding:18px}
+  .reel{width:120px;height:140px;background:#0b1220;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;overflow:hidden;border:2px solid rgba(255,255,255,0.03)}
+  .symbol{width:100%;height:40px;display:flex;align-items:center;justify-content:center;font-weight:800;border-radius:6px;margin:6px 0;background:#fff;color:#111}
+  .symbol.cherry{background:#ffd1dc}
+  .symbol.lemon{background:#fff2c6}
+  .symbol.seven{background:#ffd8b8}
+  .symbol.bar{background:#d6d6d6}
+  .paytable{margin-top:12px;font-size:14px}
+
+  .bigbtn{width:100%;padding:12px;border-radius:8px;border:none;background:var(--accent);color:#081217;font-weight:800;cursor:pointer}
+  .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .small{padding:8px;border-radius:8px}
+
+  .history{margin-top:12px;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;max-height:160px;overflow:auto}
+  table{width:100%;border-collapse:collapse;color:var(--muted)}
+  th,td{padding:6px;text-align:left;font-size:13px}
+
+  footer{margin-top:12px;text-align:center;color:#889}
+  @media (max-width:880px){.main{flex-direction:column}.controls{width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo"><div style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#091821,#092a2a);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.03)"><strong style="color:var(--accent)">M</strong></div><div><h1>Manchine</h1><div style="font-size:12px;color:var(--muted)">Máquina de caça-níqueis — cassino virtual</div></div></div>
+    <div class="wallet">Fichas: <span id="bank" style="font-weight:900;color:var(--accent);margin-left:8px">500</span></div>
+  </header>
+
+  <div class="main">
+    <div class="machine">
+      <div style="display:flex;justify-content:center;align-items:center;gap:12px">
+        <div class="reels" id="reels">
+          <div class="reel" id="reel0"></div>
+          <div class="reel" id="reel1"></div>
+          <div class="reel" id="reel2"></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:8px">
+        <button id="spinBtn" class="bigbtn">SPIN</button>
+        <button id="autoBtn" class="secondary small">Auto</button>
+      </div>
+
+      <div class="paytable">
+        <strong>Tabela de Pagamento</strong>
+        <ul>
+          <li>3x 7 = 100x aposta</li>
+          <li>3x BAR = 50x aposta</li>
+          <li>3x Fruta = 10x aposta</li>
+          <li>2x Fruta = 2x aposta</li>
+        </ul>
+      </div>
+
+      <div class="history" id="roundHistory">
+        <strong>Últimas Rodadas</strong>
+        <div id="historyList" style="margin-top:8px"></div>
+      </div>
+    </div>
+
+    <aside class="controls">
+      <div style="margin-bottom:8px"><label>Aposta (fichas)</label><input id="bet" type="number" min="1" value="10" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;background:#071219;border:1px solid rgba(255,255,255,0.03);color:var(--muted)"></div>
+      <div style="display:flex;gap:8px;margin-top:8px"><button id="maxBet" class="small secondary">Max</button><button id="minBet" class="small secondary">Min</button></div>
+
+      <div style="margin-top:12px"><button id="collectBtn" class="bigbtn secondary">Coletar Prêmio</button></div>
+
+      <div style="margin-top:12px">
+        <strong>Perfil</strong>
+        <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+          <img id="avatar" src="https://i.imgur.com/4ZQZ4YB.png" style="width:56px;height:56px;border-radius:50%;border:2px solid #333">
+          <div>
+            <div id="playerName">Convidado</div>
+            <div style="font-size:12px;color:var(--muted)" id="playerChips">Fichas: 500</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <button id="openProfile" class="small secondary">Perfil</button>
+          <button id="openLogin" class="small secondary">Login</button>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <strong>Recompensa diária</strong>
+        <div style="margin-top:8px;font-size:13px">Receba fichas grátis uma vez por dia.</div>
+        <button id="dailyBtn" class="small" style="margin-top:8px">Reclamar</button>
+      </div>
+
+    </aside>
+  </div>
+
+  <footer>Versão demo — fichas 100% virtuais. By ChatGPT</footer>
+</div>
+
+<!-- Login modal (shared simple system) -->
+<div id="loginModal" style="display:none;position:fixed;inset:0;background:#0008;align-items:center;justify-content:center;z-index:9999">
+  <div style="background:#08131a;padding:18px;border-radius:10px;width:360px;color:white;border:1px solid #333">
+    <h3>Login / Registrar</h3>
+    <input id="loginUser" placeholder="Usuário" style="width:100%;padding:8px;margin-top:8px;border-radius:6px;background:#071219;border:1px solid #333;color:white">
+    <input id="loginPass" placeholder="Senha" type="password" style="width:100%;padding:8px;margin-top:8px;border-radius:6px;background:#071219;border:1px solid #333;color:white">
+    <input id="loginChips" type="number" placeholder="Fichas iniciais (somente registro)" style="width:100%;padding:8px;margin-top:8px;border-radius:6px;background:#071219;border:1px solid #333;color:white">
+    <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end"><button id="cancelLogin" class="secondary">Cancelar</button><button id="doLogin">Entrar</button></div>
+  </div>
+</div>
+
+<script>
+// --- Manchine: Slot Machine Game (cassino virtual) ---
+const SYMBOLS = [
+  {id:'cherry', label:'🍒', type:'fruit'},
+  {id:'lemon', label:'🍋', type:'fruit'},
+  {id:'orange', label:'🍊', type:'fruit'},
+  {id:'bar', label:'BAR', type:'bar'},
+  {id:'seven', label:'7️⃣', type:'seven'},
+];
+
+let reels = [[],[],[]];
+let bank = 500;
+let currentBet = 10;
+let history = [];
+let autoplay = false;
+let currentUser = null;
+let users = JSON.parse(localStorage.getItem('manchineUsers') || '{}');
+
+const reelEls = [document.getElementById('reel0'),document.getElementById('reel1'),document.getElementById('reel2')];
+const bankEl = document.getElementById('bank');
+const spinBtn = document.getElementById('spinBtn');
+const autoBtn = document.getElementById('autoBtn');
+const betInput = document.getElementById('bet');
+const historyList = document.getElementById('historyList');
+const playerName = document.getElementById('playerName');
+const playerChips = document.getElementById('playerChips');
+const avatarImg = document.getElementById('avatar');
+
+function buildReel(){
+  // build randomized reel with weighted symbols (fruits more common)
+  const arr = [];
+  for(let i=0;i<40;i++){
+    const r = Math.random();
+    if(r<0.45) arr.push(SYMBOLS[0]);
+    else if(r<0.75) arr.push(SYMBOLS[1]);
+    else if(r<0.95) arr.push(SYMBOLS[2]);
+    else if(r<0.99) arr.push(SYMBOLS[3]);
+    else arr.push(SYMBOLS[4]);
+  }
+  return arr;
+}
+
+function resetReels(){
+  reels = [buildReel(), buildReel(), buildReel()];
+}
+
+function renderReel(reelEl, symbols){
+  reelEl.innerHTML = '';
+  // show 5 visible symbols for nice animation
+  for(let i=0;i<5;i++){
+    const s = symbols[i % symbols.length];
+    const div = document.createElement('div'); div.className='symbol '+(s.id); div.textContent = s.label; reelEl.appendChild(div);
+  }
+}
+
+function updateUI(){
+  bankEl.textContent = bank;
+  playerChips.textContent = 'Fichas: '+bank;
+  playerName.textContent = currentUser || 'Convidado';
+}
+
+function pushHistory(entry){
+  history.unshift(entry);
+  if(history.length>12) history.pop();
+  renderHistory();
+}
+
+function renderHistory(){
+  historyList.innerHTML = '';
+  history.forEach(h=>{
+    const d = document.createElement('div'); d.style.padding='6px 0'; d.style.borderBottom='1px solid rgba(255,255,255,0.02)'; d.innerHTML = `<strong>${h.result}</strong> — ${h.bet} fichas <div style="font-size:12px;color:var(--muted)">${h.time}</div>`;
+    historyList.appendChild(d);
+  });
+}
+
+function evaluateResults(out){
+  // out is array of 3 symbols
+  const ids = out.map(s=>s.id);
+  const types = out.map(s=>s.type);
+  // checks
+  if(ids.every(i=>i==='seven')) return {mult:100,desc:'3x 7'};
+  if(ids.every(i=>i==='bar')) return {mult:50,desc:'3x BAR'};
+  if(types.every(t=>t==='fruit')) return {mult:10,desc:'3x Fruta'};
+  const fruitCount = types.filter(t=>t==='fruit').length;
+  if(fruitCount===2) return {mult:2,desc:'2x Fruta'};
+  return {mult:0,desc:'Nada'};
+}
+
+function spinOnce(){
+  if(currentBet<1 || currentBet>bank) { alert('Aposta inválida ou sem fichas suficientes.'); return; }
+  bank -= currentBet; updateUI();
+  // generate stopping indices
+  const result = [];
+  // animate reels
+  const spins = [60+Math.floor(Math.random()*40), 80+Math.floor(Math.random()*40), 100+Math.floor(Math.random()*40)];
+  reelEls.forEach((el,i)=>{
+    const symbols = reels[i];
+    let step = 0;
+    const t = setInterval(()=>{
+      const pos = (step++)%symbols.length;
+      renderReel(el, symbols.slice(pos).concat(symbols.slice(0,pos)));
+      if(step>=spins[i]){
+        clearInterval(t);
+        const stopIndex = (spins[i]%symbols.length);
+        result[i] = symbols[stopIndex];
+        // when all done, evaluate
+        if(result.filter(Boolean).length===3){
+          const res = evaluateResults(result);
+          const win = res.mult>0;
+          const payout = Math.floor(currentBet*res.mult);
+          if(win){ bank += payout; }
+          pushHistory({time:new Date().toLocaleTimeString(), result:res.desc, bet:currentBet});
+          if(currentUser){ saveUserProgress(); }
+          updateUI();
+          // visual feedback
+          if(win){ alert(`Você ganhou! ${res.desc} — prêmio: ${payout} fichas`); }
+          else { /* no win */ }
+          if(autoplay) setTimeout(()=>{ if(autoplay) spinOnce(); }, 400);
+        }
+      }
+    }, 40 + i*20);
+  });
+}
+
+spinBtn.addEventListener('click', ()=>{ currentBet = parseInt(betInput.value)||10; spinOnce(); });
+autoBtn.addEventListener('click', ()=>{ autoplay = !autoplay; autoBtn.textContent = autoplay? 'Auto (ON)':'Auto'; if(autoplay) spinOnce(); });
+
+// controls
+document.getElementById('maxBet').addEventListener('click', ()=>{ betInput.value = Math.min(100, bank); });
+document.getElementById('minBet').addEventListener('click', ()=>{ betInput.value = 1; });
+
+document.getElementById('collectBtn').addEventListener('click', ()=>{ alert('Prêmios são creditados automaticamente após cada rodada.'); });
+
+// Login modal handlers
+const loginModal = document.getElementById('loginModal');
+const openLogin = document.getElementById('openLogin');
+const cancelLogin = document.getElementById('cancelLogin');
+const doLogin = document.getElementById('doLogin');
+
+openLogin.addEventListener('click', ()=>{ loginModal.style.display='flex'; document.getElementById('loginUser').value=''; document.getElementById('loginPass').value=''; });
+cancelLogin.addEventListener('click', ()=>{ loginModal.style.display='none'; });
+
+doLogin.addEventListener('click', ()=>{
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  let chips = parseInt(document.getElementById('loginChips').value)||0;
+  if(!u||!p){ alert('Usuário e senha obrigatórios.'); return; }
+  if(!users[u]){
+    users[u] = { password:p, chips: (chips>0?chips:500), avatar:null, history:[], lastReward:null };
+    alert('Conta criada.');
+  } else if(users[u].password !== p){ alert('Senha incorreta.'); return; }
+  currentUser = u; bank = users[u].chips; if(users[u].avatar) avatarImg.src = users[u].avatar; history = users[u].history.slice().reverse(); renderHistory(); updateUI(); loginModal.style.display='none'; dailyReward();
+});
+
+// profile open (simple) - allows avatar upload and logout
+const openProfile = document.getElementById('openProfile');
+openProfile.addEventListener('click', ()=>{
+  if(!currentUser) { alert('Faça login primeiro.'); return; }
+  const file = prompt('Cole a URL de uma imagem para usar como avatar (ou cancele):');
+  if(file){ avatarImg.src = file; users[currentUser].avatar = file; saveUserProgress(); }
+});
+
+function saveUserProgress(){ if(!currentUser) return; users[currentUser].chips = bank; users[currentUser].history = history.slice().reverse(); localStorage.setItem('manchineUsers', JSON.stringify(users)); }
+function saveUserProgress(){ if(!currentUser) return; users[currentUser].chips = bank; users[currentUser].history = history.slice().reverse(); localStorage.setItem('manchineUsers', JSON.stringify(users)); }
+
+function loadStored(){ resetReels(); updateUI(); renderReel(reelEls[0], reels[0]); renderReel(reelEls[1], reels[1]); renderReel(reelEls[2], reels[2]); }
+
+// daily reward
+function dailyReward(){ if(!currentUser) return; const today = new Date().toDateString(); if(users[currentUser].lastReward !== today){ const reward = 150; bank += reward; users[currentUser].chips = bank; users[currentUser].lastReward = today; saveUserProgress(); alert('Recompensa diária: '+reward+' fichas'); updateUI(); }}
+
+// init
+resetReels(); loadStored();
+</script>
+</body>
+</html>
