@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roleta - Cassino (Demo)</title>
+  <style>
+    :root{--bg:#0b0b10;--card:#0f1720;--accent:#f59e0b;--muted:#9aa4b2;--win:#16a34a;--lose:#ef4444}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#05060a 0%, #0b0b10 100%);color:#e6eef6;font-family:Inter,Segoe UI,Roboto,Arial;display:flex;align-items:center;justify-content:center;padding:24px}
+    .app{width:100%;max-width:1100px;display:grid;grid-template-columns:520px 1fr;gap:20px}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03);padding:18px;border-radius:14px;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    h1{margin:0 0 12px;font-size:20px;color:var(--accent)}
+    .left{display:flex;flex-direction:column;align-items:center;gap:12px}
+
+    /* Wheel area */
+    .wheel-wrap{position:relative;width:420px;height:420px}
+    canvas#wheel{width:100%;height:100%;border-radius:50%;background:transparent}
+    .pointer{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;border-bottom:28px solid #fff;filter:drop-shadow(0 3px 6px rgba(0,0,0,.6))}
+
+    /* Controls */
+    .controls{width:100%;display:flex;flex-direction:column;gap:10px}
+    label{font-size:13px;color:var(--muted)}
+    select,input[type=number]{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    .row{display:flex;gap:10px}
+    .row > *{flex:1}
+    button{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:#071023;font-weight:700;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:600}
+
+    /* Right stat column */
+    .stats{display:flex;flex-direction:column;gap:12px}
+    .card{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .balance{font-size:28px;color:#fff}
+    .small{font-size:13px;color:var(--muted)}
+    .history{max-height:220px;overflow:auto;padding:8px;display:flex;flex-direction:column-reverse;gap:8px}
+    .hist-item{display:flex;justify-content:space-between;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
+    .result-win{color:var(--win);font-weight:700}
+    .result-lose{color:var(--lose);font-weight:700}
+
+    footer{margin-top:10px;font-size:12px;color:var(--muted)}
+
+    @media (max-width:980px){.app{grid-template-columns:1fr;max-width:760px}.wheel-wrap{width:360px;height:360px}}
+    @media (max-width:520px){.wheel-wrap{width:300px;height:300px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="panel left">
+      <h1>Roleta — Cassino (Demo)</h1>
+      <div style="display:flex;gap:12px;width:100%;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div class="small">Equilíbrio do jogador</div>
+        <div class="small">RTP aproximado: 97%</div>
+      </div>
+
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden></div>
+        <canvas id="wheel" width="800" height="800" role="img" aria-label="Roda da roleta"></canvas>
+      </div>
+
+      <div class="controls" style="width:420px;max-width:100%">
+        <div class="card">
+          <div class="small">Tipo de aposta</div>
+          <select id="betType">
+            <option value="number">Número (paga 35x)</option>
+            <option value="color">Cor - Vermelho/Preto (paga 2x)</option>
+            <option value="parity">Par/Ímpar (paga 2x)</option>
+            <option value="half">1-18 / 19-36 (paga 2x)</option>
+          </select>
+          <div id="numberSelectWrap" style="margin-top:8px">
+            <label class="small">Número (0-36)</label>
+            <input type="number" id="betNumber" min="0" max="36" value="7">
+          </div>
+          <div id="colorSelectWrap" style="display:none;margin-top:8px">
+            <label class="small">Cor</label>
+            <select id="betColor">
+              <option value="red">Vermelho</option>
+              <option value="black">Preto</option>
+            </select>
+          </div>
+          <div style="margin-top:8px" class="row">
+            <div>
+              <label class="small">Valor da aposta (fichas)</label>
+              <input type="number" id="betAmount" min="1" value="10">
+            </div>
+            <div style="flex:0.6">
+              <label class="small">Auto-spin</label>
+              <select id="autoSpinRepeats"><option value="0">Desligado</option><option value="1">1 vez</option><option value="5">5 vezes</option><option value="10">10 vezes</option></select>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button id="placeBet">Colocar & Girar</button>
+            <button class="secondary" id="clearHistory">Limpar histórico</button>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+          <div>
+            <div class="small">Saldo</div>
+            <div class="balance" id="balance">R$ 1.000</div>
+          </div>
+          <div style="text-align:right">
+            <div class="small">Aposta atual</div>
+            <div id="currentBet" style="font-weight:700">-</div>
+          </div>
+        </div>
+
+        <footer class="small">Este é um jogo de demonstração. Sem dinheiro real envolvido. Boa sorte!</footer>
+      </div>
+    </div>
+
+    <div class="panel stats">
+      <h2 style="margin:0;color:var(--accent)">Estatísticas & Histórico</h2>
+      <div class="card">
+        <div class="small">Resultados recentes</div>
+        <div class="history" id="history"></div>
+      </div>
+
+      <div class="card">
+        <div class="small">Controles rápidos</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button id="betMin">Min (1)</button>
+          <button id="betHalf">Metade Saldo</button>
+          <button id="betAll">Tudo</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="small">Regras básicas</div>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)">
+          <li>Número 0 tem payout especial: perde nas apostas color/parity/half.</li>
+          <li>Número paga 35x, apostas de cor/par/half pagam 2x.</li>
+          <li>RTP aproximado para demo: 97% (variável conforme regras).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // -- Setup da roda e números (ordem europeia 0-36) --
+    const numbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
+    const redNumbers = new Set([1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]);
+
+    const canvas = document.getElementById('wheel');
+    const ctx = canvas.getContext('2d');
+    const cx = canvas.width/2, cy = canvas.height/2, radius = Math.min(cx,cy)-12;
+
+    let angle = 0;
+    let angularVelocity = 0;
+    let spinning = false;
+
+    function drawWheel(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      const seg = (Math.PI*2)/numbers.length;
+      for(let i=0;i<numbers.length;i++){
+        const start = angle + i*seg;
+        const end = start + seg;
+        // color
+        const num = numbers[i];
+        const isRed = redNumbers.has(num);
+        ctx.beginPath();
+        ctx.moveTo(cx,cy);
+        ctx.arc(cx,cy,radius,start,end);
+        ctx.closePath();
+        ctx.fillStyle = num===0 ? '#2b2f36' : (isRed ? '#c0392b' : '#111');
+        ctx.fill();
+        // stroke
+        ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+        ctx.lineWidth = 2; ctx.stroke();
+
+        // number label
+        const mid = (start+end)/2;
+        const tx = cx + Math.cos(mid)*(radius*0.72);
+        const ty = cy + Math.sin(mid)*(radius*0.72)+6;
+        ctx.save();
+        ctx.translate(tx,ty);
+        ctx.rotate(mid + Math.PI/2);
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 18px system-ui';
+        ctx.textAlign = 'center';
+        ctx.fillText(num.toString(),0,0);
+        ctx.restore();
+      }
+
+      // inner circle
+      ctx.beginPath();ctx.arc(cx,cy,radius*0.33,0,Math.PI*2);ctx.fillStyle='#071023';ctx.fill();
+      ctx.beginPath();ctx.arc(cx,cy,radius*0.12,0,Math.PI*2);ctx.fillStyle='#0b1220';ctx.fill();
+
+      // center label
+      ctx.fillStyle='#fff';ctx.font='700 20px system-ui';ctx.textAlign='center';ctx.fillText('ROULETTE',cx,cy+8);
+    }
+
+    function animate(){
+      if(!spinning){drawWheel();return}
+      angle += angularVelocity;
+      angularVelocity *= 0.995; // friction
+      if(Math.abs(angularVelocity) < 0.0005){ // stop
+        angularVelocity = 0; spinning = false; onSpinEnd();
+      }
+      drawWheel();
+      requestAnimationFrame(animate);
+    }
+
+    // Start animation loop
+    requestAnimationFrame(animate);
+
+    // -- Game logic / UI --
+    const balanceEl = document.getElementById('balance');
+    const historyEl = document.getElementById('history');
+    const placeBtn = document.getElementById('placeBet');
+    const betTypeEl = document.getElementById('betType');
+    const betNumberEl = document.getElementById('betNumber');
+    const betColorEl = document.getElementById('betColor');
+    const betAmountEl = document.getElementById('betAmount');
+    const currentBetEl = document.getElementById('currentBet');
+
+    let balance = 1000;
+    let history = [];
+    function fmt(v){return 'R$ '+v.toFixed(2)}
+    function refreshUI(){balanceEl.textContent = fmt(balance);}
+    refreshUI();
+
+    betTypeEl.addEventListener('change', ()=>{
+      const t = betTypeEl.value;
+      document.getElementById('numberSelectWrap').style.display = t==='number' ? 'block' : 'none';
+      document.getElementById('colorSelectWrap').style.display = t==='color' ? 'block' : 'none';
+    });
+
+    document.getElementById('betMin').addEventListener('click', ()=>betAmountEl.value = 1);
+    document.getElementById('betHalf').addEventListener('click', ()=>betAmountEl.value = Math.max(1,Math.floor(balance/2)));
+    document.getElementById('betAll').addEventListener('click', ()=>betAmountEl.value = Math.max(1,Math.floor(balance)));
+
+    document.getElementById('clearHistory').addEventListener('click', ()=>{history=[];renderHistory();});
+
+    placeBtn.addEventListener('click', ()=>{
+      const amount = Number(betAmountEl.value);
+      if(amount<=0 || amount>balance){alert('Valor de aposta inválido ou saldo insuficiente');return}
+      const bet = {type:betTypeEl.value,amount};
+      if(bet.type==='number'){bet.number = Number(betNumberEl.value)}
+      if(bet.type==='color'){bet.color = betColorEl.value}
+      currentBetEl.textContent = JSON.stringify(bet);
+      startSpin(bet);
+    });
+
+    // Spin logic
+    let pendingBet = null;
+    function startSpin(bet){
+      if(spinning) return; // evitar spins sobrepostos
+      pendingBet = bet;
+      balance -= bet.amount; refreshUI(); // aposta retirada imediatamente
+
+      // choose random stop angle influenced by RNG
+      const targetIndex = Math.floor(Math.random()*numbers.length);
+      const seg = (Math.PI*2)/numbers.length;
+      const targetAngle = - (targetIndex*seg + seg/2) + (Math.random()*seg - seg/2)*0.2; // pequeno jitter
+
+      // compute required angularVelocity to land near target with friction
+      // We'll pick an initial velocity and let friction do the rest; simulate a few candidate velocities
+      let initial = 0.6 + Math.random()*0.8 + 6; // base spin magnitude
+      // convert to angular velocity that decays; we'll rotate multiple turns
+      angularVelocity = initial;
+      spinning = true;
+      // add bias so final resting angle approximates target
+      // We'll schedule a small adjustment as it slows: attach a final nudge
+      // Simpler approach: spin a deterministic amount of extra turns then set final angle when stopping
+      // We'll compute a final offset in onSpinEnd
+      animate();
+    }
+
+    function onSpinEnd(){
+      // Determine landed number from current angle
+      // Normalize angle so that 0 at top (pointer at top)
+      const normalized = ((-angle + Math.PI/2) % (Math.PI*2) + Math.PI*2) % (Math.PI*2);
+      const seg = (Math.PI*2)/numbers.length;
+      const index = Math.floor(normalized/seg) % numbers.length;
+      const result = numbers[index];
+      evaluateResult(result);
+    }
+
+    function evaluateResult(result){
+      const bet = pendingBet;
+      pendingBet = null;
+      if(!bet) return;
+      let payout = 0; let win=false; let reason='';
+      if(bet.type==='number'){
+        if(bet.number === result){payout = bet.amount*35; win=true; reason='Acertou o número!'}
+      } else if(bet.type==='color'){
+        if(result!==0){
+          const isRed = redNumbers.has(result);
+          if((isRed && bet.color==='red') || (!isRed && bet.color==='black')){payout = bet.amount*2; win=true; reason='Acertou a cor!'}
+        }
+      } else if(bet.type==='parity'){
+        if(result!==0){
+          if((result%2===0 && bet.parity==='even') || (result%2===1 && bet.parity==='odd')){payout = bet.amount*2; win=true; reason='Acertou par/ímpar!'}
+        }
+      } else if(bet.type==='half'){
+        if(result!==0){
+          const half = result<=18 ? 'low':'high';
+          if((bet.half==='low' && half==='low') || (bet.half==='high' && half==='high')){payout = bet.amount*2; win=true; reason='Acertou metade!'}
+        }
+      }
+
+      // credit payout
+      if(win) balance += payout; refreshUI();
+
+      // push to history
+      const isRed = redNumbers.has(result);
+      const color = result===0 ? 'green' : (isRed ? 'red' : 'black');
+      const entry = {result, color, bet, payout, win, ts: new Date().toLocaleTimeString()};
+      history.push(entry); renderHistory();
+
+      // flashing effect on center briefly
+      flashResult(entry);
+    }
+
+    function renderHistory(){
+      historyEl.innerHTML = '';
+      for(let i=history.length-1;i>=0;i--){
+        const h = history[i];
+        const el = document.createElement('div'); el.className='hist-item';
+        const left = document.createElement('div'); left.innerHTML = `<strong>${h.result}</strong> <span style=\"color:var(--muted);font-size:12px;margin-left:8px\">${h.color}</span>`;
+        const right = document.createElement('div'); right.innerHTML = `${h.ts} <span style=\"margin-left:8px;\">${h.win?'<span class=result-win>+'+fmt(h.payout)+'</span>':'<span class=result-lose>-'+fmt(h.bet.amount)+'</span>'}</span>`;
+        el.appendChild(left); el.appendChild(right); historyEl.appendChild(el);
+      }
+    }
+
+    function flashResult(entry){
+      // Simple temporary center text
+      const overlay = document.createElement('div'); overlay.style.position='absolute'; overlay.style.left='0'; overlay.style.top='0'; overlay.style.width='100%'; overlay.style.height='100%'; overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center'; overlay.style.pointerEvents='none';
+      overlay.innerHTML = `<div style=\"padding:18px 28px;background:rgba(0,0,0,0.6);border-radius:12px;border:1px solid rgba(255,255,255,0.04);font-weight:700;font-size:20px\">Resultado: ${entry.result} (${entry.color.toUpperCase()})</div>`;
+      document.querySelector('.wheel-wrap').appendChild(overlay);
+      setTimeout(()=>overlay.remove(),1800);
+    }
+
+    // Initialize wheel drawing once
+    drawWheel();
+
+    // Accessibility: allow arrow keys to change bet amount
+    document.addEventListener('keydown',(e)=>{
+      if(e.key==='ArrowUp'){betAmountEl.stepUp();}
+      if(e.key==='ArrowDown'){betAmountEl.stepDown();}
+    });
+
+    // Expand evaluation: allow parity/half bets from UI even though not exposed yet
+    // hooking additional selects
+    // Add small UI elements dynamically
+    (function addParityHalfControls(){
+      const container = document.getElementById('colorSelectWrap').parentNode;
+      // parity
+      const parityWrap = document.createElement('div'); parityWrap.style.display='none'; parityWrap.id='parityWrap'; parityWrap.style.marginTop='8px';
+      parityWrap.innerHTML = '<label class="small">Par / Ímpar</label><select id="betParity"><option value="odd">Ímpar</option><option value="even">Par</option></select>';
+      container.appendChild(parityWrap);
+      // half
+      const halfWrap = document.createElement('div'); halfWrap.style.display='none'; halfWrap.id='halfWrap'; halfWrap.style.marginTop='8px';
+      halfWrap.innerHTML = '<label class="small">Metade</label><select id="betHalfSelect"><option value="low">1-18</option><option value="high">19-36</option></select>';
+      container.appendChild(halfWrap);
+      betTypeEl.addEventListener('change', ()=>{
+        const t=betTypeEl.value;
+        document.getElementById('parityWrap').style.display = t==='parity' ? 'block' : 'none';
+        document.getElementById('halfWrap').style.display = t==='half' ? 'block' : 'none';
+      });
+      // ensure values are passed into bet
+      placeBtn.addEventListener('click', ()=>{
+        // before start, map selected extras
+        const t=betTypeEl.value;
+        if(t==='parity'){
+          const p = document.getElementById('betParity').value; window.lastParity = p;
+        }
+        if(t==='half'){
+          const h = document.getElementById('betHalfSelect').value; window.lastHalf = h;
+        }
+      });
+      // update evaluate to read these
+      const originalEval = evaluateResult;
+      evaluateResult = function(result){
+        // attach selected parity/half onto pendingBet if applicable
+        if(window.lastParity && pendingBet && pendingBet.type==='parity'){pendingBet.parity = window.lastParity}
+        if(window.lastHalf && pendingBet && pendingBet.type==='half'){pendingBet.half = window.lastHalf}
+        originalEval(result);
+      }
+    })();
+
+    // Small note: This is a demo. The RNG uses Math.random(). For production gambling use a certified RNG.
+  </script>
+</body>
+</html>
