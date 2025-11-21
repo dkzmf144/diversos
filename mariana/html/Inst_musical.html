@@ -2,247 +2,280 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>🎵 Loja Musical</title>
+  <title>🎵 Instrumentos Musicais</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #0d0d0d;
       color: white;
-      text-align: center;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      text-align: center;
     }
+
+    h1 {
+      color: gold;
+      font-size: 36px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      color: #ccc;
+      margin-top: -10px;
+      font-weight: 300;
+    }
+
     h2 {
       margin-top: 40px;
-      color: #ffcc00;
+      color: gold;
+      font-size: 30px;
     }
-    .container {
+
+    .categoria-icone {
+      font-size: 40px;
+    }
+
+    .produtos {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      margin: 20px;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 20px;
+      margin-bottom: 40px;
     }
-    .item {
-      background: #1a1a1a;
+
+    .produto {
+      background-color: #111;
+      border: 2px solid red;
+      width: 260px;
       padding: 15px;
       border-radius: 10px;
-      width: 220px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px black;
     }
-    .item img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .item h3 {
-      margin: 10px 0 5px;
-      font-size: 18px;
-      color: #ffcc00;
-    }
-    .item p {
-      font-size: 14px;
-      color: #ddd;
+
+    .produto img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
       margin-bottom: 10px;
     }
-    .price {
-      margin-top: 10px;
-      display: inline-block;
-      background: red;
-      padding: 5px 10px;
+
+    .produto h4 {
+      color: gold;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .produto p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .preco {
+      background-color: red;
+      padding: 8px;
       border-radius: 5px;
       font-weight: bold;
       color: white;
+      font-size: 18px;
+      display: inline-block;
       text-decoration: none;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- INSTRUMENTOS DE CORDAS -->
-  <h2>🎸 Instrumentos de Cordas</h2>
-  <div class="container">
+  <h1>🎵 Instrumentos Musicais</h1>
+  <h3>Os melhores instrumentos e acessórios para músicos de todos os estilos.</h3>
 
-    <div class="item">
-      <img src="../mariana/imagem/fender-stratocaster.jpg" />
-      <h3>Fender Stratocaster</h3>
+  <!-- 🎸 Instrumentos de Cordas -->
+  <h2 class="categoria-icone">🎸 Instrumentos de Cordas</h2>
+
+  <div class="produtos">
+
+    <div class="produto">
+      <img src="../imagem/Fender Stratocaster.avif">
+      <h4>Fender Stratocaster</h4>
       <p>Som limpo e versátil.</p>
-      <a class="price" href="pagamento.html">R$ 8.999,00</a>
+      <a class="preco" href="pagamento.html">R$ 8.999,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/gibson-lespaul.jpg" />
-      <h3>Gibson Les Paul</h3>
+    <div class="produto">
+      <img src="../imagem/Gibson Les Paul.webp">
+      <h4>Gibson Les Paul</h4>
       <p>Som encorpado para rock.</p>
-      <a class="price" href="pagamento.html">R$ 19.999,00</a>
+      <a class="preco" href="pagamento.html">R$ 19.999,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/ibanez-rg.jpg" />
-      <h3>Ibanez RG550</h3>
+    <div class="produto">
+      <img src="../imagem/Ibanez RG550.2.webp">
+      <h4>Ibanez RG550</h4>
       <p>Perfeita para solos rápidos.</p>
-      <a class="price" href="pagamento.html">R$ 7.499,00</a>
+      <a class="preco" href="pagamento.html">R$ 7.499,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/epiphone-sg.jpg" />
-      <h3>Epiphone SG</h3>
+    <div class="produto">
+      <img src="../imagem/Epiphone SG.webp">
+      <h4>Epiphone SG</h4>
       <p>Modelo clássico e leve.</p>
-      <a class="price" href="pagamento.html">R$ 3.899,00</a>
+      <a class="preco" href="pagamento.html">R$ 3.899,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/violao-yamaha-f310.jpg" />
-      <h3>Yamaha F310</h3>
+    <div class="produto">
+      <img src="../imagem/Yamaha F310.avif">
+      <h4>Yamaha F310</h4>
       <p>Som equilibrado.</p>
-      <a class="price" href="pagamento.html">R$ 899,00</a>
+      <a class="preco" href="pagamento.html">R$ 899,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/violao-takamine-gd30.jpg" />
-      <h3>Takamine GD30</h3>
+    <div class="produto">
+      <img src="../imagem/Takamine GD30.jpg">
+      <h4>Takamine GD30</h4>
       <p>Projeção excelente.</p>
-      <a class="price" href="pagamento.html">R$ 3.299,00</a>
+      <a class="preco" href="pagamento.html">R$ 3.299,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/violao-fender-cd60.jpg" />
-      <h3>Fender CD-60</h3>
+    <div class="produto">
+      <img src="../imagem/Fender CD-60.webp">
+      <h4>Fender CD-60</h4>
       <p>Ótimo custo-benefício.</p>
-      <a class="price" href="pagamento.html">R$ 1.299,00</a>
+      <a class="preco" href="pagamento.html">R$ 1.299,00</a>
     </div>
 
-    <div class="item">
-      <img src="../mariana/imagem/schecter-demon.jpg" />
-      <h3>Schecter Demon-6</h3>
+    <div class="produto">
+      <img src="../imagem/Schecter Demon-6.jpg">
+      <h4>Schecter Demon-6</h4>
       <p>Som agressivo e moderno.</p>
-      <a class="price" href="pagamento.html">R$ 4.499,00</a>
+      <a class="preco" href="pagamento.html">R$ 4.499,00</a>
     </div>
 
   </div>
 
 
-  <!-- SOPROS E PERCUSSÃO -->
-  <h2>🥁 Sopros e Percussão</h2>
-  <div class="container">
+  <!-- 🥁 Sopros e Percussão -->
+<h2 class="categoria-icone">🥁 Sopros e Percussão</h2>
 
-    <div class="item">
-      <img src="../mariana/imagem/pearl-export.jpg" />
-      <h3>Pearl Export</h3>
-      <p>Bateria acústica famosa.</p>
-      <a class="price" href="pagamento.html">R$ 8.999,00</a>
-    </div>
+<div class="produtos">
 
-    <div class="item">
-      <img src="../mariana/imagem/tama-imperialstar.jpg" />
-      <h3>Tama Imperialstar</h3>
-      <p>Qualidade japonesa.</p>
-      <a class="price" href="pagamento.html">R$ 9.499,00</a>
-    </div>
-
-    <div class="item">
-      <img src="../mariana/imagem/mapex-mars.jpg" />
-      <h3>Mapex Mars</h3>
-      <p>Som ideal para rock.</p>
-      <a class="price" href="pagamento.html">R$ 7.799,00</a>
-    </div>
-
-    <div class="item">
-      <img src="../mariana/imagem/alesis-nitro-mesh.jpg" />
-      <h3>Alesis Nitro Mesh</h3>
-      <p>Eletrônica silenciosa.</p>
-      <a class="price" href="pagamento.html">R$ 4.599,00</a>
-    </div>
-
-    <div class="item">
-      <img src="../mariana/imagem/ludwig-breakbeats.jpg" />
-      <h3>Ludwig Breakbeats</h3>
-      <p>Compacta e prática.</p>
-      <a class="price" href="pagamento.html">R$ 6.299,00</a>
-    </div>
-
-    <!-- Instrumentos de Sopro -->
-    <div class="item">
-      <img src="../mariana/imagem/saxofone.jpg" />
-      <h3>Saxofone Alto</h3>
-      <p>Som encorpado e elegante.</p>
-      <a class="price" href="pagamento.html">R$ 5.999,00</a>
-    </div>
-
-    <div class="item">
-      <img src="../mariana/imagem/trompete.jpg" />
-      <h3>Trompete Bb</h3>
-      <p>Popular em bandas e orquestras.</p>
-      <a class="price" href="pagamento.html">R$ 2.499,00</a>
-    </div>
-
-    <div class="item">
-      <img src="../mariana/imagem/flauta-transversal.jpg" />
-      <h3>Flauta Transversal</h3>
-      <p>Ideal para iniciantes e avançados.</p>
-      <a class="price" href="pagamento.html">R$ 1.899,00</a>
-    </div>
-
+  <div class="produto">
+    <img src="https://m.media-amazon.com/images/I/81bGwEuIT7L._AC_SL1500_.jpg" />
+    <h4>Pearl Export</h4>
+    <p>Bateria acústica famosa.</p>
+    <a class="preco" href="pagamento.html">R$ 8.999,00</a>
   </div>
 
+  <div class="produto">
+    <img src="https://m.media-amazon.com/images/I/81bGwEuIT7L._AC_SL1500_.jpg" />
+    <h4>Tama Imperialstar</h4>
+    <p>Qualidade japonesa.</p>
+    <a class="preco" href="pagamento.html">R$ 9.499,00</a>
+  </div>
 
-  <!-- ACESSÓRIOS -->
-  <h2>🎼 Acessórios para Instrumentos</h2>
-  <div class="container">
+  <div class="produto">
+    <img src="https://m.media-amazon.com/images/I/61ulrv2GE9L._AC_SX522_.jpg" />
+    <h4>Mapex Mars</h4>
+    <p>Som ideal para rock.</p>
+    <a class="preco" href="pagamento.html">R$ 7.799,00</a>
+  </div>
 
-    <div class="item">
+  <div class="produto">
+    <img src="https://m.media-amazon.com/images/I/71Y7YfJOLmL._AC_SX522_.jpg" />
+    <h4>Alesis Nitro Mesh</h4>
+    <p>Eletrônica silenciosa.</p>
+    <a class="preco" href="pagamento.html">R$ 4.599,00</a>
+  </div>
+
+  <div class="produto">
+    <img src="https://m.media-amazon.com/images/I/71yZ7gc3FAL._AC_SX522_.jpg" />
+    <h4>Ludwig Breakbeats</h4>
+    <p>Compacta e prática.</p>
+    <a class="preco" href="pagamento.html">R$ 6.299,00</a>
+  </div>
+
+  <div class="produto">
+    <img src="https://via.placeholder.com/200x200?text=Trompete" />
+    <h4>Trompete Yamaha YTR-3335</h4>
+    <p>Trompete em Si bemol, ideal para iniciantes.</p>
+    <a class="preco" href="pagamento.html">R$ 5.355,00</a>
+  </div>
+
+  <div class="produto">
+    <img src="https://via.placeholder.com/200x200?text=Saxofone" />
+    <h4>Saxofone Alto Yamaha YAS-280</h4>
+    <p>Saxofone leve e muito usado por estudantes.</p>
+    <a class="preco" href="pagamento.html">R$ 11.310,00</a>
+  </div>
+
+  <div class="produto">
+    <img src="https://via.placeholder.com/200x200?text=Clarinete" />
+    <h4>Clarinete Dominante Si Bemol 17 Chaves</h4>
+    <p>Clarinete tradicional com boa afinação.</p>
+    <a class="preco" href="pagamento.html">R$ 1.480,00</a>
+  </div>
+
+</div>
+
+  <!-- 🎼 ACESSÓRIOS -->
+  <h2 class="categoria-icone">🎼 Acessórios para Instrumentos</h2>
+
+  <div class="produtos">
+
+    <div class="produto">
       <img src="../mariana/imagem/cabo-p10.jpg" />
-      <h3>Cabo P10 Profissional</h3>
+      <h4>Cabo P10 Profissional</h4>
       <p>Alta durabilidade e baixa perda.</p>
-      <a class="price" href="pagamento.html">R$ 59,90</a>
+      <a class="preco" href="pagamento.html">R$ 59,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/capo-violao.jpg" />
-      <h3>Capotraste</h3>
+      <h4>Capotraste</h4>
       <p>Indispensável para violão e guitarra.</p>
-      <a class="price" href="pagamento.html">R$ 29,90</a>
+      <a class="preco" href="pagamento.html">R$ 29,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/palhetas.jpg" />
-      <h3>Kit 10 Palhetas</h3>
+      <h4>Kit 10 Palhetas</h4>
       <p>Diversos tamanhos e espessuras.</p>
-      <a class="price" href="pagamento.html">R$ 19,90</a>
+      <a class="preco" href="pagamento.html">R$ 19,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/correia-guitarra.jpg" />
-      <h3>Correia para Guitarra</h3>
+      <h4>Correia para Guitarra</h4>
       <p>Ajustável e resistente.</p>
-      <a class="price" href="pagamento.html">R$ 49,90</a>
+      <a class="preco" href="pagamento.html">R$ 49,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/suporte-instrumento.jpg" />
-      <h3>Suporte de Violão</h3>
+      <h4>Suporte de Violão</h4>
       <p>Dobrável e seguro.</p>
-      <a class="price" href="pagamento.html">R$ 39,90</a>
+      <a class="preco" href="pagamento.html">R$ 39,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/afinador.jpg" />
-      <h3>Afinador Digital</h3>
-      <p>Clipes para todos os instrumentos.</p>
-      <a class="price" href="pagamento.html">R$ 69,90</a>
+      <h4>Afinador Digital</h4>
+      <p>Clipe universal para instrumentos.</p>
+      <a class="preco" href="pagamento.html">R$ 69,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/baquetas.jpg" />
-      <h3>Baquetas 5A</h3>
+      <h4>Baquetas 5A</h4>
       <p>Madeira de alta resistência.</p>
-      <a class="price" href="pagamento.html">R$ 39,90</a>
+      <a class="preco" href="pagamento.html">R$ 39,90</a>
     </div>
 
-    <div class="item">
+    <div class="produto">
       <img src="../mariana/imagem/fones-monitor.jpg" />
-      <h3>Fone de Ouvido Monitor</h3>
+      <h4>Fone de Ouvido Monitor</h4>
       <p>Ideal para palco e estúdio.</p>
-      <a class="price" href="pagamento.html">R$ 159,90</a>
+      <a class="preco" href="pagamento.html">R$ 159,90</a>
     </div>
 
   </div>
