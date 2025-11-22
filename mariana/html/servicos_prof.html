@@ -26,28 +26,32 @@
     .produto {
       display: inline-block;
       width: 260px;
+      height: 330px; /* TAMANHO PADRÃO DOS CARDS */
       border: 2px solid red;
       padding: 15px;
       margin: 15px;
       border-radius: 12px;
       background-color: #111;
+      vertical-align: top;
     }
-    .produto img {
-      width: 100%;
-      border-radius: 10px;
-      height: 130px;
-      object-fit: cover;
+    .emoji {
+      font-size: 70px;
+      display: block;
+      margin-bottom: 10px;
     }
     .produto h3 {
       color: yellow;
       font-size: 20px;
       margin-bottom: 5px;
     }
+    .produto p {
+      min-height: 40px; /* Alinha descrições */
+    }
     .preco {
       background-color: red;
       color: white;
       padding: 10px 0;
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 18px;
       border-radius: 8px;
       display: block;
@@ -66,32 +70,33 @@
   <div class="categoria">
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg">
+      <div class="emoji">📊</div>
       <h3>Consultoria Administrativa</h3>
       <p>Organização e otimização empresarial.</p>
       <a href="https://www.workana.com/pt/jobs?category=business-consulting" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/5668773/pexels-photo-5668773.jpeg">
+      <div class="emoji">⚖️</div>
       <h3>Consultoria Jurídica</h3>
-      <p>Orientação com advogado especialista.</p>
+      <p>Orientação especializada.</p>
       <a href="https://www.getninjas.com.br/consultoria/advocacia" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/4386371/pexels-photo-4386371.jpeg">
+      <div class="emoji">📑</div>
       <h3>Consultoria Contábil</h3>
-      <p>Auxílio completo para finanças e impostos.</p>
+      <p>Finanças e impostos.</p>
       <a href="https://www.getninjas.com.br/consultoria/contador" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg">
+      <div class="emoji">💻</div>
       <h3>Consultoria de Tecnologia</h3>
       <p>Suporte e análise de sistemas.</p>
       <a href="https://www.workana.com/pt/jobs?category=it-programming" class="preco">Contratar</a>
     </div>
+
   </div>
 
   <!-- Categoria 2 -->
@@ -99,32 +104,33 @@
   <div class="categoria">
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/8093039/pexels-photo-8093039.jpeg">
+      <div class="emoji">🔌</div>
       <h3>Eletricista</h3>
-      <p>Instalações, reparos e inspeções.</p>
+      <p>Instalações e reparos elétricos.</p>
       <a href="https://www.getninjas.com.br/reformas-e-reparos/eletricista" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/4240497/pexels-photo-4240497.jpeg">
+      <div class="emoji">🛠️</div>
       <h3>Encanador</h3>
-      <p>Conserto de vazamentos e manutenção.</p>
+      <p>Vazamentos e manutenção.</p>
       <a href="https://www.getninjas.com.br/reformas-e-reparos/encanador" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg">
+      <div class="emoji">🖥️</div>
       <h3>Técnico em Informática</h3>
-      <p>Formatação e reparo de computadores.</p>
+      <p>Reparo e formatação.</p>
       <a href="https://www.getninjas.com.br/assistencia-tecnica/computadores" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/5961210/pexels-photo-5961210.jpeg">
+      <div class="emoji">📡</div>
       <h3>Instalador de Internet</h3>
-      <p>Configuração de roteadores e redes.</p>
+      <p>Redes e roteadores.</p>
       <a href="https://www.getninjas.com.br/assistencia-tecnica/instalacao-de-rede" class="preco">Contratar</a>
     </div>
+
   </div>
 
   <!-- Categoria 3 -->
@@ -132,32 +138,33 @@
   <div class="categoria">
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/6195121/pexels-photo-6195121.jpeg">
+      <div class="emoji">🧽</div>
       <h3>Faxineira</h3>
-      <p>Limpeza residencial ou comercial.</p>
+      <p>Limpeza profissional.</p>
       <a href="https://www.parafuzo.com/" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/6198662/pexels-photo-6198662.jpeg">
+      <div class="emoji">🌿</div>
       <h3>Jardineiro</h3>
-      <p>Manutenção completa de jardins.</p>
+      <p>Manutenção de jardins.</p>
       <a href="https://www.getninjas.com.br/reformas-e-reparos/jardinagem" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/5691628/pexels-photo-5691628.jpeg">
+      <div class="emoji">🪛</div>
       <h3>Montador de Móveis</h3>
       <p>Montagem rápida e segura.</p>
       <a href="https://www.getninjas.com.br/reformas-e-reparos/montador-de-moveis" class="preco">Contratar</a>
     </div>
 
     <div class="produto">
-      <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg">
+      <div class="emoji">🎨</div>
       <h3>Pintor</h3>
       <p>Pintura interna e externa.</p>
       <a href="https://www.getninjas.com.br/reformas-e-reparos/pintor" class="preco">Contratar</a>
     </div>
+
   </div>
 
 </body>
