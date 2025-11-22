@@ -23,9 +23,10 @@
       font-size: 32px;
     }
 
+    /* CARTÕES */
     .produto {
       width: 260px;
-      height: 270px;
+      height: 300px;
       background: #0a0a0a;
       border: 2px solid red;
       display: inline-block;
@@ -33,6 +34,27 @@
       margin: 15px;
       border-radius: 12px;
       vertical-align: top;
+
+      /* Efeito hover */
+      transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.25s ease;
+    }
+
+    .produto:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 18px red;
+      border-color: yellow;
+    }
+
+    .icone {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 12px auto;
+      fill: #ffcc00;
+      transition: fill 0.3s ease;
+    }
+
+    .produto:hover .icone {
+      fill: #ffffff;
     }
 
     .produto h3 {
@@ -46,12 +68,6 @@
       min-height: 40px;
     }
 
-    .icon {
-      font-size: 70px;
-      margin-bottom: 10px;
-      display: block;
-    }
-
     .preco {
       background: red;
       padding: 8px;
@@ -62,7 +78,13 @@
       display: inline-block;
       text-decoration: none;
       color: white;
+      transition: background 0.3s ease;
     }
+
+    .preco:hover {
+      background: #cc0000;
+    }
+
   </style>
 </head>
 <body>
@@ -70,125 +92,183 @@
   <h1>🛡️ Seguros</h1>
   <p>Proteção para você, sua família, seus bens e seu futuro.</p>
 
-  <!-- SEGUROS PARA PESSOAS -->
+  <!-- ======================
+       SEGUROS PESSOAIS
+       ====================== -->
   <h2>👤 Seguros Pessoais</h2>
 
   <div class="produto">
-    <div class="icon">❤️‍🩹</div>
+    <!-- Ícone Seguro de Vida -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+    </svg>
     <h3>Seguro de Vida</h3>
-    <p>Proteção financeira para sua família em casos de imprevistos.</p>
+    <p>Proteção financeira para sua família em imprevistos.</p>
     <a href="Pagamento.html" class="preco">R$ 54,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">🦺</div>
+    <!-- Ícone Primeiros Socorros / Acidentes -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-4 10h-2v2h-2v-2H9v-2h2V9h2v2h2v2z"/>
+    </svg>
     <h3>Acidentes Pessoais</h3>
-    <p>Cobertura para acidentes, invalidez e internações.</p>
+    <p>Cobertura para acidentes, internações e invalidez.</p>
     <a href="Pagamento.html" class="preco">R$ 34,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">🧳✈️</div>
+    <!-- Ícone Avião -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3-1 3 1v-1.5L13 19v-5.5l8 2.5z"/>
+    </svg>
     <h3>Seguro Viagem</h3>
-    <p>Cobertura médica, extravio e cancelamentos.</p>
+    <p>Cobertura médica e extravio de bagagem.</p>
     <a href="Pagamento.html" class="preco">R$ 62,90</a>
   </div>
 
   <div class="produto">
-    <div class="icon">🏥</div>
+    <!-- Ícone Ambulância / Saúde -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M3 3h13v13H3z M8 6h3v2h2v3h-2v2H8v-2H6V8h2z M19 8l3 4v5h-2a2 2 0 1 1-4 0H10a2 2 0 1 1-4 0H4V16h2v1h2a3 3 0 0 1 6 0h3v-3h4l-2-3h-3V8z"/>
+    </svg>
     <h3>Plano de Saúde</h3>
-    <p>Consultas, exames e emergências com ampla rede.</p>
+    <p>Rede completa para consultas e emergências.</p>
     <a href="Pagamento.html" class="preco">R$ 159,90/mês</a>
   </div>
 
-  <!-- VEÍCULOS -->
+  <!-- ======================
+       SEGUROS DE VEÍCULOS
+       ====================== -->
   <h2>🚗 Seguros de Veículos</h2>
 
   <div class="produto">
-    <div class="icon">🚘🛡️</div>
+    <!-- Ícone Carro -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M5 11l1-3h12l1 3H5zm-1 2h16v6h-2a2 2 0 1 1-4 0H9a2 2 0 1 1-4 0H4v-6z"/>
+    </svg>
     <h3>Seguro Auto</h3>
-    <p>Cobertura contra roubo, colisão e danos a terceiros.</p>
+    <p>Cobertura contra colisão, roubo e terceiros.</p>
     <a href="Pagamento.html" class="preco">R$ 119,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">🏍️🛡️</div>
-    <h3>Seguro Moto</h3>
-    <p>Proteção completa para motocicletas.</p>
-    <a href="Pagamento.html" class="preco">R$ 74,90/mês</a>
-  </div>
+  <svg width="80" height="80" viewBox="0 0 24 24" fill="yellow">
+    <path d="M10 4l2 2h4l1 2h3v2h-3.1a4 4 0 0 1 3.1 3.9h-2A2 2 0 0 0 16 12h-2l-3 4H7l3-6H5l-1-2h6l-1-2h1zM7 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+  </svg>
+  <h3>Seguro Moto</h3>
+  <p>Proteção completa para sua motocicleta.</p>
+  <a href="Pagamento.html" class="preco">R$ 74,90/mês</a>
+</div>
 
   <div class="produto">
-    <div class="icon">🚕📱</div>
-    <h3>Seguro Motorista App</h3>
-    <p>Ideal para Uber, 99 e motoristas de app.</p>
-    <a href="Pagamento.html" class="preco">R$ 59,90/mês</a>
-  </div>
+  <svg width="80" height="80" viewBox="0 0 24 24" fill="yellow">
+    <path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm8 18v2H4v-2a8 8 0 0 1 16 0z"/>
+    <circle cx="18" cy="7" r="3" fill="yellow"/>
+  </svg>
+  <h3>Seguro Motorista App</h3>
+  <p>Ideal para Uber, 99 e entregas.</p>
+  <a href="Pagamento.html" class="preco">R$ 59,90/mês</a>
+</div>
 
-  <div class="produto">
-    <div class="icon">🪟</div>
-    <h3>Proteção Vidros</h3>
-    <p>Cobre troca de vidros, faróis e lanternas.</p>
-    <a href="Pagamento.html" class="preco">R$ 22,90/mês</a>
-  </div>
+<div class="produto">
+  <svg width="80" height="80" viewBox="0 0 24 24" fill="yellow">
+    <path d="M3 3h18v14H3V3zm2 2v10h14V5H5zm4 14h6v2H9v-2z"/>
+  </svg>
+  <h3>Proteção Vidros</h3>
+  <p>Cobre troca de vidros, faróis e lanternas.</p>
+  <a href="Pagamento.html" class="preco">R$ 22,90/mês</a>
+</div>
 
-  <!-- RESIDENCIAL -->
+
+  <!-- ======================
+       RESIDENCIAL
+       ====================== -->
   <h2>🏠 Seguros Residenciais</h2>
 
   <div class="produto">
-    <div class="icon">🏡🛡️</div>
+    <!-- Ícone Casa -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M12 3l10 9h-3v9H5v-9H2z"/>
+    </svg>
     <h3>Seguro Residencial</h3>
-    <p>Proteção contra incêndio, furtos e danos elétricos.</p>
+    <p>Incêndio, furtos e danos elétricos.</p>
     <a href="Pagamento.html" class="preco">R$ 44,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">📱💻</div>
+    <!-- Ícone TV / Eletrônicos -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M3 5h18v12H3zm5 14h8v2H8z"/>
+    </svg>
     <h3>Seguro Eletrônicos</h3>
-    <p>Cobre celulares, TVs, videogames e notebooks.</p>
+    <p>Celulares, videogames e notebooks.</p>
     <a href="Pagamento.html" class="preco">R$ 32,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">🔥</div>
-    <h3>Proteção Contra Incêndio</h3>
-    <p>Cobre perdas e danos causados por incêndio.</p>
-    <a href="Pagamento.html" class="preco">R$ 24,90/mês</a>
-  </div>
+  <svg width="80" height="80" viewBox="0 0 24 24" fill="yellow">
+    <path d="M12 2c1.2 2 1 3.7-.5 5.3-1.3 1.4-2 3-1.2 5 .6 1.5 2 2.7 3.7 3.3 1.5-1.3 2.5-3.4 2-5.6-.4-1.7-1.5-3-2.5-4.2C12.8 4.8 12.4 3.5 12 2zm0 20c-4.4 0-8-3.1-8-7 0-2.4 1.3-4.3 3.3-5.7-.4 1.4-.5 2.8 0 4.2.5 1.7 2 3 3.7 3.5 2-.9 3.6-2.8 3.9-5.1.3-1.8-.2-3.4-.8-4.8C17.7 8 20 10.7 20 13c0 3.9-3.6 7-8 7z"/>
+  </svg>
+
+  <h3>Proteção Contra Incêndio</h3>
+  <p>Perdas por incêndio e danos ao veículo.</p>
+  <a href="Pagamento.html" class="preco">R$ 24,90/mês</a>
+</div>
+
 
   <div class="produto">
-    <div class="icon">🔐</div>
+    <!-- Ícone Cadeado Arrombado -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M12 1a4 4 0 0 0-4 4v3h2V5a2 2 0 0 1 4 0v3h2V5a4 4 0 0 0-4-4zm-6 9h12v12H6z"/>
+    </svg>
     <h3>Seguro Roubo & Furto</h3>
-    <p>Proteção para casa e bens pessoais.</p>
+    <p>Proteção da casa e bens.</p>
     <a href="Pagamento.html" class="preco">R$ 29,90/mês</a>
   </div>
 
-  <!-- EMPRESARIAIS -->
+  <!-- ======================
+       EMPRESARIAIS
+       ====================== -->
   <h2>🏢 Seguros Empresariais</h2>
 
   <div class="produto">
-    <div class="icon">🏭🛡️</div>
+    <!-- Ícone Prédio -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M4 3h6v18H4zM14 9h6v12h-6z"/>
+    </svg>
     <h3>Seguro Empresarial</h3>
-    <p>Proteção completa para o seu negócio.</p>
+    <p>Proteção completa para negócios.</p>
     <a href="Pagamento.html" class="preco">R$ 149,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">👷‍♂️🧾</div>
+    <!-- Ícone Grupo Pessoas -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <circle cx="7" cy="8" r="3"/>
+      <circle cx="17" cy="8" r="3"/>
+      <path d="M2 20a5 5 0 0 1 10 0zM12 20a5 5 0 0 1 10 0z"/>
+    </svg>
     <h3>Seguro para Funcionários</h3>
-    <p>Saúde, acidentes e benefícios corporativos.</p>
+    <p>Benefícios, saúde e acidentes.</p>
     <a href="Pagamento.html" class="preco">R$ 89,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">⚙️</div>
+    <!-- Ícone Engrenagem -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm8.7 3l-1.6-.5-.4-1.7 1-1-1.4-1.4-1 1-.7-.3-.6-1.7h-2l-.6 1.7-.7.3-1-1L6 6.1l1 1-.4 1.7-1.6.5v2l1.6.5.4 1.7-1 1 1.4 1.4 1-1 .7.3.6 1.7h2l.6-1.7.7-.3 1 1 1.4-1.4-1-1 .4-1.7 1.6-.5z"/>
+    </svg>
     <h3>Seguro Equipamentos</h3>
-    <p>Cobre máquinas, ferramentas e eletrônicos.</p>
+    <p>Proteção de máquinas e ferramentas.</p>
     <a href="Pagamento.html" class="preco">R$ 109,90/mês</a>
   </div>
 
   <div class="produto">
-    <div class="icon">⚖️</div>
+    <!-- Ícone Justiça / Balança -->
+    <svg class="icone" viewBox="0 0 24 24">
+      <path d="M12 3l4 7H8l4-7zm-6 9l3 7H3l3-7zm12 0l3 7h-6l3-7zm-6 2h2v7h-2z"/>
+    </svg>
     <h3>Responsabilidade Civil</h3>
     <p>Proteção jurídica contra danos a terceiros.</p>
     <a href="Pagamento.html" class="preco">R$ 79,90/mês</a>
