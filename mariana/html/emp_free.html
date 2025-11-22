@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>💼 Empregos & Freelancers</title>
+
   <style>
     body {
       background-color: black;
@@ -11,6 +12,7 @@
       text-align: center;
       padding: 20px;
     }
+
     h1 {
       color: gold;
       font-size: 42px;
@@ -20,26 +22,53 @@
       margin-top: 40px;
       font-size: 32px;
     }
+
     .categoria {
       margin-top: 20px;
     }
+
     .produto {
       display: inline-block;
       width: 250px;
+      height: 330px;   /* 👈 ADICIONE ESTA LINHA */
       border: 2px solid red;
       padding: 15px;
       margin: 15px;
       border-radius: 12px;
       background-color: #111;
+      transition: 0.3s;
+      cursor: pointer;
+      box-shadow: 0 0 0px red;
+
+      /* Para evitar que texto empurre o card */
+      overflow: hidden;
+}
+
+    /* HOVER DO CARD */
+    .produto:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px red;
+      border-color: yellow;
     }
-    .produto img {
+
+    /* ÍCONES */
+    .produto svg {
       width: 80px;
+      height: 80px;
+      transition: transform .3s;
     }
+
+    /* Animação do ícone */
+    .produto:hover svg {
+      transform: scale(1.20) rotate(3deg);
+    }
+
     .produto h3 {
       color: yellow;
       font-size: 20px;
       margin-bottom: 5px;
     }
+
     .preco {
       background-color: red;
       color: white;
@@ -52,105 +81,159 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>💼 Empregos & Freelancers</h1>
   <p>Serviços, pacotes e consultorias para quem quer trabalhar e crescer como freelancer.</p>
 
-  <!-- Categoria 1 -->
+  
+  <!-- ==========================
+       CATEGORIA 1 – EMPREGOS
+       ========================== -->
   <h2>🔎 Procura de Emprego</h2>
   <div class="categoria">
+
+    <!-- Currículo -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135692.png">
+      <svg viewBox="0 0 24 24" fill="#4DA3FF">
+        <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 7H7v2h7V9zm3 4H7v2h10v-2z"/>
+      </svg>
       <h3>Montagem de Currículo</h3>
       <p>Currículo profissional e personalizado.</p>
       <a href="Pagamento.html" class="preco">R$ 59,00</a>
     </div>
 
+    <!-- LinkedIn -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png">
+      <svg viewBox="0 0 24 24" fill="#0A66C2">
+        <path d="M4 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm1 6H3v12h2V9zm4 0H7v12h2v-6.5c0-4.5 6-4.9 6 0V21h2v-7.5c0-7.2-8-6.9-8-3V9z"/>
+      </svg>
       <h3>Perfil LinkedIn Pro</h3>
       <p>Criação e otimização do seu perfil.</p>
       <a href="Pagamento.html" class="preco">R$ 79,00</a>
     </div>
 
+    <!-- Entrevista -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/4108/4108848.png">
+      <svg viewBox="0 0 24 24" fill="#FFCC00">
+        <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+      </svg>
       <h3>Simulação de Entrevista</h3>
       <p>Treinamento completo para entrevistas.</p>
       <a href="Pagamento.html" class="preco">R$ 99,00</a>
     </div>
 
+    <!-- Vagas -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png">
+      <svg viewBox="0 0 24 24" fill="#FF6B6B">
+        <path d="M3 4h18v2H3zm2 4h14v2H5zm-2 4h18v2H3zm2 4h14v2H5z"/>
+      </svg>
       <h3>Busca de Vagas</h3>
       <p>Listagem semanal de vagas do seu perfil.</p>
       <a href="Pagamento.html" class="preco">R$ 39,00</a>
     </div>
+
   </div>
 
-  <!-- Categoria 2 -->
+
+  <!-- ==========================
+       CATEGORIA 2 – FREELA
+       ========================== -->
   <h2>💻 Serviços Freelancers</h2>
   <div class="categoria">
+
+    <!-- Sites -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png">
+      <svg viewBox="0 0 24 24" fill="#00E5FF">
+        <path d="M3 4h18v14H3V4zm2 2v10h14V6H5zm3 14h8v2H8v-2z"/>
+      </svg>
       <h3>Criação de Sites</h3>
       <p>Site profissional completo.</p>
       <a href="Pagamento.html" class="preco">R$ 499,00</a>
     </div>
 
+    <!-- Design -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">
+      <svg viewBox="0 0 24 24" fill="#FF4DD2">
+        <path d="M4 3h16v2H4zm2 4h12v12H6z"/>
+      </svg>
       <h3>Design para Redes Sociais</h3>
       <p>Pacote com 10 artes digitais.</p>
       <a href="Pagamento.html" class="preco">R$ 149,00</a>
     </div>
 
+    <!-- Vídeo -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/2985/2985150.png">
+      <svg viewBox="0 0 24 24" fill="#FF0000">
+        <path d="M4 5h14v14H4z"/>
+        <path d="m18 8 4 4-4 4V8z"/>
+      </svg>
       <h3>Editor de Vídeo</h3>
       <p>Edição profissional para TikTok e YouTube.</p>
       <a href="Pagamento.html" class="preco">R$ 199,00</a>
     </div>
 
+    <!-- Social Media -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/3570/3570150.png">
+      <svg viewBox="0 0 24 24" fill="#9D71FF">
+        <path d="M12 2C6.5 2 2 6 2 11s4.5 9 10 9 10-4 10-9-4.5-9-10-9zm3 10h-2v5h-2v-5H9V9h3V7.5c0-2.1 2.5-2.5 3.5-2.5H16v2h-1c-.7 0-1 .3-1 .8V9h2l-.5 3z"/>
+      </svg>
       <h3>Social Media</h3>
       <p>Gestão completa das suas redes.</p>
       <a href="Pagamento.html" class="preco">R$ 299,00</a>
     </div>
+
   </div>
 
-  <!-- Categoria 3 -->
+
+
+  <!-- ==========================
+       CATEGORIA 3 – CONSULTORIAS
+       ========================== -->
   <h2>📚 Consultorias</h2>
   <div class="categoria">
+
+    <!-- Marketing -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+      <svg viewBox="0 0 24 24" fill="#00FF7F">
+        <path d="M4 4h2v16H4zm9 2-5 4v4l5 4zM14 6h6v12h-6z"/>
+      </svg>
       <h3>Consultoria de Marketing</h3>
       <p>Estratégias para crescer seu negócio.</p>
       <a href="Pagamento.html" class="preco">R$ 129,00</a>
     </div>
 
+    <!-- Freelancers -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/2936/2936632.png">
+      <svg viewBox="0 0 24 24" fill="#FFDD33">
+        <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+      </svg>
       <h3>Consultoria para Freelancers</h3>
       <p>Passo a passo para começar no mercado.</p>
       <a href="Pagamento.html" class="preco">R$ 149,00</a>
     </div>
 
+    <!-- Precificação -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/2659/2659360.png">
+      <svg viewBox="0 0 24 24" fill="#FF9933">
+        <path d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/>
+      </svg>
       <h3>Precificação de Serviços</h3>
       <p>Aprenda a cobrar corretamente.</p>
       <a href="Pagamento.html" class="preco">R$ 79,00</a>
     </div>
 
+    <!-- Financeiro -->
     <div class="produto">
-      <img src="https://cdn-icons-png.flaticon.com/512/2555/2555024.png">
+      <svg viewBox="0 0 24 24" fill="#00C8FF">
+        <path d="M3 3h18v2H3zm2 4h14v2H5zm-2 4h18v2H3zm2 4h14v2H5z"/>
+      </svg>
       <h3>Consultoria Financeira</h3>
       <p>Organize seus ganhos e despesas.</p>
       <a href="Pagamento.html" class="preco">R$ 89,00</a>
     </div>
+
   </div>
 
 </body>
